@@ -1,0 +1,7 @@
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe.config
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.pdb
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csprojResolveAssemblyReference.cache
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csproj.CoreCompileInputs.cache
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.exe
+C:\Users\Fede\source\repos\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.pdb
