@@ -8,15 +8,21 @@ namespace Uandes_Eats
 {
     class Usuario
     {
-        string rut;
-        string contraseña;
-        int telefono;
-        string apellido;
-        string nombre;
+        string Rut;
+        string Contraseña;
+        public string Telefono;
+        public string Mail;
+        public string Apellido;
+        public string Nombre;
 
-    }
-    class CrearUsuario
-    {
-
+        public Usuario(string rut, string contraseña, string telefono, string mail, string apellido, string nombre)
+        {
+            Rut = rut;
+            Contraseña = contraseña;
+            Telefono = telefono;
+            Mail = mail;
+            Apellido = apellido;
+            Nombre = nombre;
+        }
     }
 }

@@ -15,6 +15,9 @@ namespace Uandes_Eats
             int contraseña;
             int accion;
 
+            List<Usuario> Usuarios = new List<Usuario> { };
+            LogIn LogIn = new LogIn();
+
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Hola, bienvenido a Uandes Eats");
@@ -88,13 +91,19 @@ namespace Uandes_Eats
             }
             else if (resultado == 2)
             {
-                Console.WriteLine("Agregar metodo CrearUsuario");
+                Usuarios.Add(LogIn.RegistrarUsuario());
             }
 
             else if(resultado == 0)
             {
                 Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
             }
+
+            foreach(Usuario usuario in Usuarios)
+            {
+                Console.Write(usuario.Nombre);
+            }
+            Console.ReadKey();
         }
     }
 }
