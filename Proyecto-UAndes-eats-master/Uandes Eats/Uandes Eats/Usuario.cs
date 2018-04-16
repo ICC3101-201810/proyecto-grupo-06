@@ -9,7 +9,7 @@ namespace Uandes_Eats
     class Usuario
     {
         string Rut;
-        string Contraseña;
+        public string Contraseña;
         public string Telefono;
         public string Mail;
         public string Apellido;

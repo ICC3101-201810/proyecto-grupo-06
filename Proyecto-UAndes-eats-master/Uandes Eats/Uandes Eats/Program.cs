@@ -11,98 +11,85 @@ namespace Uandes_Eats
         static void Main(string[] args)
         {
             int resultado;
-            int rut;
-            int contraseña;
             int accion;
 
             List<Usuario> Usuarios = new List<Usuario> { };
-            LogIn LogIn = new LogIn();
+            LogIn LogIn = new LogIn(new List<Usuario> { });
 
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Hola, bienvenido a Uandes Eats");
-            Console.WriteLine("1) Login");
-            Console.WriteLine("2) Registrarse");
-            Console.WriteLine("0) Salir");
-
-            int.TryParse(Console.ReadLine(), out resultado);
-
-            while (resultado != 1 & resultado != 2 & resultado != 0)
+            while (true)
             {
-                Console.WriteLine("Comando inválido");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Hola, bienvenido a Uandes Eats");
                 Console.WriteLine("1) Login");
                 Console.WriteLine("2) Registrarse");
                 Console.WriteLine("0) Salir");
+
                 int.TryParse(Console.ReadLine(), out resultado);
-            } 
-        
-            if (resultado == 1)
-            {
-                Console.WriteLine("Por favor ingresar RUT sin puntos ni guiones " +
-                    "(Si RUT termina en k, reemplaze por 0)");
-
-                int.TryParse(Console.ReadLine(), out rut);
-
-                while (rut != 180260897)
-                {
-                    Console.WriteLine("RUT ingresado no válido. ");
-                    Console.WriteLine("Recuerde que el RUT ingresado no debe tener " +
-                        "puntos ni guiones y si termina en k, esta debe ser reemplazada por un 0");
-                    int.TryParse(Console.ReadLine(), out rut);
-                }
-
-                Console.WriteLine("Por favor ingresar contraseña");
-                int.TryParse(Console.ReadLine(), out contraseña);
-
-                while (contraseña != 123456)
-                {
-                    Console.WriteLine("Contraseña ingresada incorrecta. ");
-                    Console.WriteLine("Por favor intente nuevamente");
-                    int.TryParse(Console.ReadLine(), out contraseña);
-                }
-
-                Console.WriteLine("Bienvenido");
-                Console.WriteLine("1)Realizar Pedido");
-                Console.WriteLine("2)Ver Pedidos");
-                Console.WriteLine("0)Salir");
-                int.TryParse(Console.ReadLine(), out accion);
 
                 while (resultado != 1 & resultado != 2 & resultado != 0)
                 {
                     Console.WriteLine("Comando inválido");
-                    Console.WriteLine("1)Realizar Pedido");
-                    Console.WriteLine("2)Ver Pedidos");
-                    Console.WriteLine("0)Salir");
+                    Console.WriteLine("1) Login");
+                    Console.WriteLine("2) Registrarse");
+                    Console.WriteLine("0) Salir");
                     int.TryParse(Console.ReadLine(), out resultado);
                 }
 
-                if (accion == 1)
+                if (resultado == 1)
                 {
-                    Console.WriteLine("metodo RealizarPedido");
+                    Console.Write("Ingrese RUT: ");
+                    string RUT = Console.ReadLine();
+                    Console.Write("Ingrese Contraseña: ");
+                    string Contraseña = Console.ReadLine();
+                    bool Ingresa = LogIn.IngresarACuenta(RUT, Contraseña);
+                    //Con este comando vemos si existe el usuario, si existe nos devuelve true y guarda al usuario en la variable LogIn.Usuario//
+                    if (Ingresa)
+                    {
+                        Console.WriteLine("Bienvenido");
+                        Console.WriteLine("1)Realizar Pedido");
+                        Console.WriteLine("2)Ver Pedidos");
+                        Console.WriteLine("0)Salir");
+                        int.TryParse(Console.ReadLine(), out accion);
+
+                        while (resultado != 1 & resultado != 2 & resultado != 0)
+                        {
+                            Console.WriteLine("Comando inválido");
+                            Console.WriteLine("1)Realizar Pedido");
+                            Console.WriteLine("2)Ver Pedidos");
+                            Console.WriteLine("0)Salir");
+                            int.TryParse(Console.ReadLine(), out resultado);
+                        }
+
+                        if (accion == 1)
+                        {
+                            Console.WriteLine("Metodo realizar Pedido");
+                        }
+                        else if (accion == 2)
+                        {
+                            Console.WriteLine("metodo VerPedido");
+                        }
+                        else if (accion == 0)
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("RUT o Contraseña no validos");
+                    }
                 }
-                else if (accion == 2)
+                else if (resultado == 2)
                 {
-                    Console.WriteLine("metodo VerPedido");
+                    LogIn.RegistrarUsuario();
                 }
-                else if (accion==0)
+
+                else if (resultado == 0)
                 {
-                    
+                    Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+                    break;
                 }
-            }
-            else if (resultado == 2)
-            {
-                Usuarios.Add(LogIn.RegistrarUsuario());
             }
 
-            else if(resultado == 0)
-            {
-                Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
-            }
-
-            foreach(Usuario usuario in Usuarios)
-            {
-                Console.Write(usuario.Nombre);
-            }
             Console.ReadKey();
         }
     }
