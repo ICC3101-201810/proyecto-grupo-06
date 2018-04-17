@@ -33,7 +33,7 @@ namespace Uandes_Eats
                     Console.WriteLine("0) Salir");
                     
                 }
-                int.TryParse(resultadoS, out resultado);
+                int.TryParse(Console.ReadLine(), out resultado);
 
                 if (resultado == 1)
                 {
@@ -60,7 +60,7 @@ namespace Uandes_Eats
                             Console.WriteLine("0)Salir");
                             accionS = Console.ReadLine();
                         }
-                        int.TryParse(accionS, out accion);
+                        int.TryParse(Console.ReadLine(), out accion);
 
                         if (accion == 1)
                         {
@@ -74,7 +74,7 @@ namespace Uandes_Eats
 
                         else if (accion == 0)
                         {
-
+                            Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
                         }
                     }
 
