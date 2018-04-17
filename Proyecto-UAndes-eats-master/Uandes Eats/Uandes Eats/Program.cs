@@ -13,8 +13,8 @@ namespace Uandes_Eats
             int resultado;
             int accion;
 
-            List<Usuario> Usuarios = new List<Usuario> { };
-            LogIn LogIn = new LogIn(new List<Usuario> { });
+            List<Usuarios> Usuarios = new List<Usuarios> { };
+            LogIn LogIn = new LogIn(new List<Usuarios> { new Administradores("p", "p", "p", "p", "p", "p")});
 
             while (true)
             {
@@ -41,43 +41,59 @@ namespace Uandes_Eats
                     string RUT = Console.ReadLine();
                     Console.Write("Ingrese Contraseña: ");
                     string Contraseña = Console.ReadLine();
-                    bool Ingresa = LogIn.IngresarACuenta(RUT, Contraseña);
-                    //Con este comando vemos si existe el usuario, si existe nos devuelve true y guarda al usuario en la variable LogIn.Usuario//
-                    if (Ingresa)
+                    //
+                    bool Ingresa = LogIn.IngresarACuenta(RUT, Contraseña);//Con este comando vemos si existe el usuario, si existe nos devuelve true y guarda al usuario en la variable LogIn.Usuario
+                    //
+                    if (Ingresa && LogIn.UsuarioIniciado is Clientes)// Programa para clientes
                     {
                         Console.WriteLine("Bienvenido");
                         Console.WriteLine("1)Realizar Pedido");
                         Console.WriteLine("2)Ver Pedidos");
                         Console.WriteLine("0)Salir");
-                        int.TryParse(Console.ReadLine(), out accion);
+                        string accionS = Console.ReadLine();
 
-                        while (resultado != 1 & resultado != 2 & resultado != 0)
+                        while (accionS != "1" & accionS != "2" & accionS != "0")
                         {
                             Console.WriteLine("Comando inválido");
                             Console.WriteLine("1)Realizar Pedido");
                             Console.WriteLine("2)Ver Pedidos");
                             Console.WriteLine("0)Salir");
-                            int.TryParse(Console.ReadLine(), out resultado);
+                            accionS = Console.ReadLine();
                         }
+                        int.TryParse(Console.ReadLine(), out accion);
 
                         if (accion == 1)
                         {
                             Console.WriteLine("Metodo realizar Pedido");
                         }
+
                         else if (accion == 2)
                         {
                             Console.WriteLine("metodo VerPedido");
                         }
+
                         else if (accion == 0)
                         {
 
                         }
                     }
+
+                    else if (Ingresa && LogIn.UsuarioIniciado is Administradores)// Programa para admin
+                    {
+                        Console.WriteLine("Programa para admin");
+                    }
+
+                    else if (Ingresa && LogIn.UsuarioIniciado is Repartidores)// Programa para Repartidores
+                    {
+                        Console.WriteLine("Programa para admin");
+                    }
+
                     else
                     {
                         Console.WriteLine("RUT o Contraseña no validos");
                     }
                 }
+
                 else if (resultado == 2)
                 {
                     LogIn.RegistrarUsuario();

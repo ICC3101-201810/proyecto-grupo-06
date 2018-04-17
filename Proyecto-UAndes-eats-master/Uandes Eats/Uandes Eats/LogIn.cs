@@ -8,10 +8,10 @@ namespace Uandes_Eats
 {
     class LogIn
     {
-        public List<Usuario> UsuariosRegistrados;
-        Usuario UsuarioIniciado;
+        public List<Usuarios> UsuariosRegistrados;
+        public Usuarios UsuarioIniciado;
 
-        public LogIn(List<Usuario> usuariosRegistrados)
+        public LogIn(List<Usuarios> usuariosRegistrados)
         {
             UsuariosRegistrados = usuariosRegistrados;
         }
@@ -32,12 +32,12 @@ namespace Uandes_Eats
             Console.WriteLine("Contraseña: ");
             string Contraseña = Console.ReadLine();
 
-            UsuariosRegistrados.Add(new Usuario(Nombre, Apellido, Rut, Mail, Telefono, Contraseña));
+            UsuariosRegistrados.Add(new Clientes(Nombre, Apellido, Rut, Mail, Telefono, Contraseña));
         }
 
         public bool IngresarACuenta (string RUT, string ContraseñaCuenta)
         {
-            foreach(Usuario usuario in UsuariosRegistrados)
+            foreach(Usuarios usuario in UsuariosRegistrados)
             {
                 if (usuario.Nombre == RUT && usuario.Contraseña == ContraseñaCuenta)
                 {

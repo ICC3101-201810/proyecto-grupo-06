@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uandes_Eats
 {
-    class Usuario
+    abstract class Usuarios
     {
         string Rut;
         public string Contraseña;
@@ -15,7 +15,7 @@ namespace Uandes_Eats
         public string Apellido;
         public string Nombre;
 
-        public Usuario(string rut, string contraseña, string telefono, string mail, string apellido, string nombre)
+        public Usuarios(string rut, string contraseña, string telefono, string mail, string apellido, string nombre)
         {
             Rut = rut;
             Contraseña = contraseña;
