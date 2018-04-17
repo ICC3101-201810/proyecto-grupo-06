@@ -23,17 +23,17 @@ namespace Uandes_Eats
                 Console.WriteLine("1) Login");
                 Console.WriteLine("2) Registrarse");
                 Console.WriteLine("0) Salir");
+                string resultadoS = Console.ReadLine();
 
-                int.TryParse(Console.ReadLine(), out resultado);
-
-                while (resultado != 1 & resultado != 2 & resultado != 0)
+                while (resultadoS != "1" & resultadoS != "2" & resultadoS != "0")
                 {
                     Console.WriteLine("Comando inválido");
                     Console.WriteLine("1) Login");
                     Console.WriteLine("2) Registrarse");
                     Console.WriteLine("0) Salir");
-                    int.TryParse(Console.ReadLine(), out resultado);
+                    
                 }
+                int.TryParse(Console.ReadLine(), out resultado);
 
                 if (resultado == 1)
                 {

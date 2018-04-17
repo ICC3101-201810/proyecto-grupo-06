@@ -11,5 +11,7 @@ namespace Uandes_Eats
         public Clientes(string rut, string contraseña, string telefono, string mail, string apellido, string nombre) : base(rut, contraseña, telefono, mail, apellido, nombre)
         {
         }
+
+        public List<Producto> HacerPedido()
     }
 }
