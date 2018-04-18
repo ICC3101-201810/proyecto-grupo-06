@@ -41,45 +41,5 @@ namespace Uandes_Eats
             return new Platos(nombre, descripcion, precio);
         }
 
-        public Local AgregarLocal()
-        {
-            Console.WriteLine("Agregando local:");
-            Console.WriteLine("Nombre del local");
-            string Nombre = Console.ReadLine();
-            Console.WriteLine("Tiempo de espera aprox:");
-            string TiempoEspera = Console.ReadLine();
-            Console.WriteLine("Ubicacion del local:");
-            List<Platos> Menu = new List<Platos> { };
-            Console.WriteLine("Introdusca el menu del local:");
-            while (true)
-            {
-                Console.WriteLine("Agregar plato?");
-                Console.WriteLine("1)Si");
-                Console.WriteLine("2)No");
-                string agregar = Console.ReadLine();
-                if (agregar != "1" & agregar != "2")
-                {
-                    Console.WriteLine("Comando invalido");
-                    Console.WriteLine("Agregar plato?");
-                    Console.WriteLine("1)Si");
-                    Console.WriteLine("2)No");
-                    agregar = Console.ReadLine();
-                }
-
-                if (agregar == "1")
-                {
-                    Platos plato = CrearPlatos();
-                    Menu.Add(plato);
-                }
-                else
-                {
-                    break;
-                }
-
-            }
-            return new Local(Nombre, TiempoEspera, ubicacion, Menu);
-
-        }
-
     }
 }

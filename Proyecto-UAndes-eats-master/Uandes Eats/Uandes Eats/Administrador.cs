@@ -22,6 +22,7 @@ namespace Uandes_Eats
             Console.WriteLine("Ubicacion del local:");
             string Ubicacion = Console.ReadLine();
             Console.WriteLine("Introdusca el menu del local:");
+            Local local = new Local(Nombre, TiempoEspera, Ubicacion, new List<Platos> { });
             while (true)
             {
                 Console.WriteLine("Agregar plato?");
@@ -36,7 +37,6 @@ namespace Uandes_Eats
                     Console.WriteLine("2)No");
                     agregar = Console.ReadLine();
                 }
-                Local local = new Local(Nombre, TiempoEspera, Ubicacion, new List<Platos> { });
 
                 if (agregar == "1")
                 {

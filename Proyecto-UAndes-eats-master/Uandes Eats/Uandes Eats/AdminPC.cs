@@ -25,4 +25,3 @@ namespace Uandes_Eats
         }
     }
 }
-}
