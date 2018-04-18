@@ -33,7 +33,7 @@ namespace Uandes_Eats
                     Console.WriteLine("0) Salir");
                     
                 }
-                int.TryParse(Console.ReadLine(), out resultado);
+                int.TryParse(resultadoS, out resultado);
 
                 if (resultado == 1)
                 {
@@ -60,7 +60,7 @@ namespace Uandes_Eats
                             Console.WriteLine("0)Salir");
                             accionS = Console.ReadLine();
                         }
-                        int.TryParse(Console.ReadLine(), out accion);
+                        int.TryParse(accionS, out accion);
 
                         if (accion == 1)
                         {

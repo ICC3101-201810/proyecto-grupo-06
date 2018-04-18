@@ -10,7 +10,7 @@ namespace Uandes_Eats
     {
         public string Nombre;
         public string Apellido;
-        string Rut;
+        public string Rut;
         public string Mail;
         public string Telefono;
         public string Contraseña;
