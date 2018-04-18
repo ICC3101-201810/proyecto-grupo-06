@@ -15,14 +15,15 @@ namespace Uandes_Eats
         public string Telefono;
         public string Contraseña;
 
-        public Usuarios(string rut, string contraseña, string telefono, string mail, string apellido, string nombre)
+        protected Usuarios(string nombre, string apellido, string rut, string mail, string telefono, string contraseña)
         {
-            Rut = rut;
-            Contraseña = contraseña;
-            Telefono = telefono;
-            Mail = mail;
-            Apellido = apellido;
             Nombre = nombre;
+            Apellido = apellido;
+            Rut = rut;
+            Mail = mail;
+            Telefono = telefono;
+            Contraseña = contraseña;
         }
+    }
     }
 }
