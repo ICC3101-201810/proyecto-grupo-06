@@ -8,12 +8,12 @@ namespace Uandes_Eats
 {
     abstract class Usuarios
     {
-        string Rut;
-        public string Contraseña;
-        public string Telefono;
-        public string Mail;
-        public string Apellido;
         public string Nombre;
+        public string Apellido;
+        string Rut;
+        public string Mail;
+        public string Telefono;
+        public string Contraseña;
 
         public Usuarios(string rut, string contraseña, string telefono, string mail, string apellido, string nombre)
         {
