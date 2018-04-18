@@ -11,31 +11,75 @@ namespace Uandes_Eats
         public string nombre;
         public string tiempodeespera;
         public string ubicacion;
+        public List<Platos> Menu;
 
-        public List<Local> Locales;
+
+        public Local(string nombre, string tiempodeespera, string ubicacion, List<Platos> menu)
+        {
+            this.nombre = nombre;
+            this.tiempodeespera = espera;
+            this.ubicacion = ubicacion;
+            this.Menu = menu;
+        }
 
         public void DatosLocal()
         {
           
         }
 
-        public void AgregarLocal()
+        public Platos AgregarPlato()
         {
-            Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca");
-            Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades");
-            Local l3 = new Local("FoodTruck", "5 minutos", "Al frente entrada a Ingeniería");
-            Local l4 = new Local("Kiosko Reloj", "10 minutos", "Primer Piso Edificio Reloj");
-            Local l5 = new Local("Kiosko Ciruelos","10 minutos","Patio los Ciruelos");
-            Local l6 = new Local("Subway", "20 minutos", "Camino el Alba 12620");
-            Local l7 = new Local("Papa Johns", "40 minutos", "Camino el Alba 12620");
-            Local l8 = new Local("Wally´s", "30 minutos", "Camino el Alba 12620");
+            int precio;
+            Console.WriteLine("Agregando plato:");
+            Console.WriteLine("Nombre del plato");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Descripción del plato:");
+            string descripcion = Console.ReadLine();
+            Console.WriteLine("Precio del plato:");
+            int.TryParse(Console.ReadLine(), out precio);
+
+            return new Platos(nombre, descripcion, precio);
         }
 
-        public Local(string nombre, string tiempodeespera, string ubicacion)
+        public Local AgregarLocal()
         {
-            nombre = nombre;
-            tiempodeespera = espera;
-            ubicacion = ubicacion;
+            Console.WriteLine("Agregando local:");
+            Console.WriteLine("Nombre del local");
+            string Nombre = Console.ReadLine();
+            Console.WriteLine("Tiempo de espera aprox:");
+            string TiempoEspera = Console.ReadLine();
+            Console.WriteLine("Ubicacion del local:");
+            List<Platos> Menu = new List<Platos> { };
+            Console.WriteLine("Introdusca el menu del local:");
+            while (true)
+            {
+                Console.WriteLine("Agregar plato?");
+                Console.WriteLine("1)Si");
+                Console.WriteLine("2)No");
+                string agregar = Console.ReadLine();
+                if (agregar != "1" & agregar != "2")
+                {
+                    Console.WriteLine("Comando invalido");
+                    Console.WriteLine("Agregar plato?");
+                    Console.WriteLine("1)Si");
+                    Console.WriteLine("2)No");
+                    agregar = Console.ReadLine();
+                }
+
+                if (agregar == "1")
+                {
+                    Platos plato = CrearPlatos();
+                    Menu.Add(plato);
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            return new Local(Nombre, TiempoEspera, ubicacion, Menu);
+
         }
+
     }
 }

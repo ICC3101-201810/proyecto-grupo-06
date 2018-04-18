@@ -47,7 +47,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="LogIn.cs" />
     <Compile Include="Pedido.cs" />
-    <Compile Include="Plato.cs" />
+    <Compile Include="Platos.cs" />
     <Compile Include="Repartidor.cs" />
     <Compile Include="RepartidoresActivos.cs" />
     <Compile Include="Usuario.cs" />
