@@ -25,5 +25,4 @@ namespace Uandes_Eats
             Contraseña = contraseña;
         }
     }
-    }
 }
