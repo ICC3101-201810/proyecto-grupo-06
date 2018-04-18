@@ -9,8 +9,8 @@ namespace Uandes_Eats
     class Pedido
     {
         Clientes Cliente;
-        List<Plato> Platos;
-        public Pedido(List<Plato> platos, Clientes cliente)
+        List<Platos> Platos;
+        public Pedido(List<Platos> platos, Clientes cliente)
         {
             Cliente = cliente;
             Platos = platos;
