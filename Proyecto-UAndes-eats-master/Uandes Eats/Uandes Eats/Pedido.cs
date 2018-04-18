@@ -8,7 +8,14 @@ namespace Uandes_Eats
 {
     class Pedido
     {
-        public List<Pedido> Pedidos;
+        Clientes Cliente;
+        List<Plato> Platos;
+        public Pedido(List<Plato> platos, Clientes cliente)
+        {
+            Cliente = cliente;
+            Platos = platos;
+
+        }
 
         public void RealizarPedido()
         {
@@ -34,7 +41,7 @@ namespace Uandes_Eats
         {
 
         }
-            public Pedido(string telefono, string apellido, string nombre)
+        public Pedido(string telefono, string apellido, string nombre)
         {
         }
     }
