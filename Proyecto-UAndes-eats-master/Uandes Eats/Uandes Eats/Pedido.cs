@@ -34,7 +34,7 @@ namespace Uandes_Eats
             Console.WriteLine("10) Wallys ");
             Console.WriteLine("0) Salir ");
 
-            RealizarPedido.Add(new Pedido(Nombre, Apellido, Telefono));
+            //RealizarPedido.Add(new Pedido(Nombre, Apellido, Telefono));
         }
 
         public void VerPedido()

@@ -40,8 +40,7 @@ namespace Uandes_Eats
 
                 if (agregar == "1")
                 {
-                    Platos plato = local.CrearPlatos();
-                    local.Menu.Add(plato);
+                    local.AgregarPlato();
                 }
                 else
                 {

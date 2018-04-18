@@ -8,26 +8,20 @@ namespace Uandes_Eats
 {
     class Local
     {
-        public string nombre;
-        public string tiempodeespera;
-        public string ubicacion;
+        public string Nombre;
+        public string TiempoEspera;
+        public string Ubicacion;
         public List<Platos> Menu;
 
-
-        public Local(string nombre, string tiempodeespera, string ubicacion, List<Platos> menu)
+        public Local(string nombre, string tiempoEspera, string ubicacion, List<Platos> menu)
         {
-            this.nombre = nombre;
-            this.tiempodeespera = espera;
-            this.ubicacion = ubicacion;
-            this.Menu = menu;
+            Nombre = nombre;
+            TiempoEspera = tiempoEspera;
+            Ubicacion = ubicacion;
+            Menu = menu;
         }
 
-        public void DatosLocal()
-        {
-          
-        }
-
-        public Platos AgregarPlato()
+        public void AgregarPlato()
         {
             int precio;
             Console.WriteLine("Agregando plato:");
@@ -38,8 +32,50 @@ namespace Uandes_Eats
             Console.WriteLine("Precio del plato:");
             int.TryParse(Console.ReadLine(), out precio);
 
-            return new Platos(nombre, descripcion, precio);
+            Menu.Add(new Platos(nombre, descripcion, precio));
+            Console.WriteLine("Plato agregado al menu");
         }
 
+        public void VerMenu()
+        {
+            int indice;
+            while (true)
+            {
+                Console.WriteLine($"Menu de {Nombre}");
+                int x = 1;
+                foreach (Platos plato in Menu)
+                {
+                    Console.WriteLine($"{x}){plato.Nombre}");
+                    x++;
+                }
+                Console.WriteLine($"{x})Volver a locales");
+
+                //Metodo Try Catch para ver si introduce bien los indices
+
+                int.TryParse(Console.ReadLine(), out indice);
+
+                if (indice != x)
+                {
+                    Platos PlatoIngresado = Menu[indice - 1];
+
+                    Console.WriteLine($"{PlatoIngresado.Nombre}");
+                    Console.WriteLine($"{PlatoIngresado.Descripcion}");
+                    Console.WriteLine($"{PlatoIngresado.Precio}");
+                    Console.WriteLine("1)Agregar al carro");
+                    Console.WriteLine("2)Volver al menu");
+
+                    //Metodo Try Catch para ver si introduce bien los indices
+
+                    if (Console.ReadLine() == "1")
+                    {
+                        //metodo para agregar prodicto al carro
+                    }
+                }
+                else if(indice == x)
+                {
+                    break;
+                }
+            }
+        }
     }
 }

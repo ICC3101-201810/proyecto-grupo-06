@@ -39,7 +39,7 @@ namespace Uandes_Eats
         {
             foreach(Usuarios usuario in UsuariosRegistrados)
             {
-                if (usuario.Nombre == RUT && usuario.Contraseña == ContraseñaCuenta)
+                if (usuario.Rut == RUT && usuario.Contraseña == ContraseñaCuenta)
                 {
                     UsuarioIniciado = usuario;
                     return true;

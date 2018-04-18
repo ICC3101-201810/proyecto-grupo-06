@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="Administrador.cs" />
     <Compile Include="AdminPC.cs" />
+    <Compile Include="BaseDatos.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Locales.cs" />
     <Compile Include="LogIn.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Platos.cs" />
