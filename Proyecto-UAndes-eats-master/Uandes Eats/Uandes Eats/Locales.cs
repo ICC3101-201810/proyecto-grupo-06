@@ -51,6 +51,21 @@ namespace Uandes_Eats
                 Console.WriteLine($"{x})Volver a locales");
 
                 //Metodo Try Catch para ver si introduce bien los indices
+                try
+                {
+                    int.TryParse(Console.ReadLine(), out indice);
+                }
+                catch
+                {
+                    Console.WriteLine("Comando invalido");
+                }
+                finally
+                {
+                    if (indice < x && indice > 0)
+                    {
+                        break;
+                    }
+                }
 
                 int.TryParse(Console.ReadLine(), out indice);
 
@@ -65,6 +80,15 @@ namespace Uandes_Eats
                     Console.WriteLine("2)Volver al menu");
 
                     //Metodo Try Catch para ver si introduce bien los indices
+                    while (Console.ReadLine() != "1" & Console.ReadLine() != "2")
+                    {
+                        Console.WriteLine("Comando invalido");
+                        Console.WriteLine($"{PlatoIngresado.Nombre}");
+                        Console.WriteLine($"{PlatoIngresado.Descripcion}");
+                        Console.WriteLine($"{PlatoIngresado.Precio}");
+                        Console.WriteLine("1)Agregar al carro");
+                        Console.WriteLine("2)Volver al menu");
+                    }
 
                     if (Console.ReadLine() == "1")
                     {

@@ -47,7 +47,7 @@ namespace Uandes_Eats
                     if (Ingresa && LogIn.UsuarioIniciado is Clientes)// Programa para clientes
                     {
                         Console.WriteLine("Bienvenido");
-                        Console.WriteLine("1)Realizar Pedido");
+                        Console.WriteLine("1)Ver Locales");
                         Console.WriteLine("2)Ver Pedidos");
                         Console.WriteLine("0)Salir");
                         string accionS = Console.ReadLine();
@@ -55,7 +55,7 @@ namespace Uandes_Eats
                         while (accionS != "1" & accionS != "2" & accionS != "0")
                         {
                             Console.WriteLine("Comando inválido");
-                            Console.WriteLine("1)Realizar Pedido");
+                            Console.WriteLine("1)Ver Locales");
                             Console.WriteLine("2)Ver Pedidos");
                             Console.WriteLine("0)Salir");
                             accionS = Console.ReadLine();
