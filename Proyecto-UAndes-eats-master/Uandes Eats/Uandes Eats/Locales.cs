@@ -51,23 +51,28 @@ namespace Uandes_Eats
                 Console.WriteLine($"{x})Volver a locales");
 
                 //Metodo Try Catch para ver si introduce bien los indices
-                try
+                string indiceS = Console.ReadLine();
+                do
                 {
-                    int.TryParse(Console.ReadLine(), out indice);
-                }
-                catch
-                {
-                    Console.WriteLine("Comando invalido");
-                }
-                finally
-                {
-                    if (indice < x && indice > 0)
+                    try
                     {
-                        break;
+                        int.TryParse(Console.ReadLine(), out indice);
                     }
-                }
+                    catch
+                    {
+                        Console.WriteLine("Comando invalido");
+                        Console.WriteLine($"Menu de {Nombre}");
+                        x = 1;
+                        foreach (Platos plato in Menu)
+                        {
+                            Console.WriteLine($"{x}){plato.Nombre}");
+                            x++;
+                        }
+                        Console.WriteLine($"{x})Volver a locales");
+                        indice = -1;
+                    }
 
-                int.TryParse(Console.ReadLine(), out indice);
+                } while (indice < 0 & indice > x);
 
                 if (indice != x)
                 {
@@ -79,7 +84,6 @@ namespace Uandes_Eats
                     Console.WriteLine("1)Agregar al carro");
                     Console.WriteLine("2)Volver al menu");
 
-                    //Metodo Try Catch para ver si introduce bien los indices
                     while (Console.ReadLine() != "1" & Console.ReadLine() != "2")
                     {
                         Console.WriteLine("Comando invalido");
@@ -92,7 +96,7 @@ namespace Uandes_Eats
 
                     if (Console.ReadLine() == "1")
                     {
-                        //metodo para agregar prodicto al carro
+                        //metodo para agregar producto al carro
                     }
                 }
                 else if(indice == x)
@@ -100,6 +104,7 @@ namespace Uandes_Eats
                     break;
                 }
             }
+            
         }
     }
 }

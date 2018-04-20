@@ -13,6 +13,7 @@ namespace Uandes_Eats
             int resultado;
             int accion;
 
+            BaseDatos BaseDeDatos = new BaseDatos();
             List<Usuarios> Usuarios = new List<Usuarios> { };
             LogIn LogIn = new LogIn(new List<Usuarios> { new Administradores("p", "p", "p", "p", "p", "p")});
 
@@ -64,7 +65,7 @@ namespace Uandes_Eats
 
                         if (accion == 1)
                         {
-                            Console.WriteLine("Metodo realizar Pedido");
+                            BaseDeDatos.VerLocales();
                         }
 
                         else if (accion == 2)
@@ -85,7 +86,7 @@ namespace Uandes_Eats
 
                     else if (Ingresa && LogIn.UsuarioIniciado is Repartidores)// Programa para Repartidores
                     {
-                        Console.WriteLine("Programa para admin");
+                        Console.WriteLine("Programa para repartidores");
                     }
 
                     else
