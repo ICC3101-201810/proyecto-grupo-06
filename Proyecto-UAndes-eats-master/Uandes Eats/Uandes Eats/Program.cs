@@ -14,7 +14,29 @@ namespace Uandes_Eats
             int resultado;
             int accion;
             List<Local> Locales = new List<Local>();
-            List<Usuarios> Usuarios = new List<Usuarios> { };
+            List<Platos> m1 = new List<Platos>();
+            List<Platos> m2 = new List<Platos>();
+            List<RepartidoresActivos> Repartidorese1= new List<RepartidoresActivos>();
+            Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
+            Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
+            Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);
+            Platos p4 = new Platos("Media Luna con queso", "Media luna con jamón y queso", 2190);
+            m1.Add(p1);
+            m1.Add(p2);
+            m1.Add(p3);
+            m1.Add(p4);
+            Platos p5 = new Platos("Ave Pimentón", "Sandwich de pasta de pollo con pimentón molido", 1590);
+            Platos p6 = new Platos("Empanada napolitana", "Empanada con jamón, tomate y queso", 1190);
+            Platos p7 = new Platos("Brownie", "Brownie de chocolate y nuez", 590);
+            m2.Add(p5);
+            m2.Add(p6);
+            m2.Add(p7);
+            Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca",m1);
+            Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades",m2);
+            Locales.Add(l1);
+            Locales.Add(l2);
+
+            List<Usuarios> Usuarios = new List<Usuarios>  ();
             LogIn LogIn = new LogIn(new List<Usuarios> { new Administradores("p", "p", "p", "p", "p", "p")});
 
             while (true)
@@ -70,9 +92,9 @@ namespace Uandes_Eats
                             if (accion == 1)
                             {
                                 int resultadoi;
-                                int o = 0;
+                                int o = 1;
                                 int Plato1;
-                                int o1 = 0;
+                                int o1 = 1;
 
                                 List<string> num = new List<string>();
                                 num.Add("0");
@@ -87,7 +109,7 @@ namespace Uandes_Eats
 
                                 }
                                 string resultadoSi = Console.ReadLine();
-                                while (num.Contains(resultadoS) == false)
+                                while (num.Contains(resultadoSi) == false)
                                 {
                                     int opciones = 1;
                                     Console.WriteLine("Comando inválido");
@@ -108,7 +130,7 @@ namespace Uandes_Eats
                                 else
                                 {
                                     Console.WriteLine("0.- Para regresar al menu ");
-                                    foreach (Platos k in Locales[resultadoi].Menu)
+                                    foreach (Platos k in Locales[resultadoi-1].Menu)
                                     {
                                         Console.WriteLine(o1 + ".- " + k.Nombre);
                                         num1.Add(o1.ToString());
@@ -121,7 +143,7 @@ namespace Uandes_Eats
                                         int opciones = 1;
                                         Console.WriteLine("Comando inválido");
                                         Console.WriteLine("0.- Para regresar al menu ");
-                                        foreach (Platos i in Locales[resultadoi].Menu)
+                                        foreach (Platos i in Locales[resultadoi-1].Menu)
                                         {
                                             Console.WriteLine(opciones + ".- " + i.Nombre);
                                             opciones++;
@@ -137,7 +159,30 @@ namespace Uandes_Eats
                                     }
                                     else
                                     {
-                                        pedido.AgregarAlPedido(Locales[resultado].Menu[Plato1]);
+                                        Console.WriteLine(Locales[resultadoi-1].Menu[Plato1-1].Nombre);
+                                        Console.WriteLine(Locales[resultadoi-1].Menu[Plato1-1].Descripcion);
+                                        Console.WriteLine(Locales[resultadoi-1].Menu[Plato1-1].Precio);
+                                        Console.WriteLine("Si lo quiere añadir al pedido ingrese 1, si quiere volver al menu, ingrese 0:");
+                                        string ult = Console.ReadLine();
+                                        while (true)
+                                        {
+                                            if (ult=="1"|| ult == "0")
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Intente Nuevamente");
+                                                ult = Console.ReadLine();
+
+                                            }
+                                        }
+                                        if (ult == "1")
+                                        {
+                                            pedido.AgregarAlPedido(Locales[resultadoi-1].Menu[Plato1-1]);
+                                        }
+
+                                        
                                     }
                                 }
 
@@ -150,12 +195,17 @@ namespace Uandes_Eats
                             }
                             else if (accion == 3)
                             {
-                                //metodo para el termino de pedido
+                               bool ter= pedido.TerminarPedido();
+                                if (ter == true)
+                                {
+                                    AdminPC adminPC1 = pedido.VincularRepPed( Repartidorese1, pedido);
+                                    //Falta todo lo que es pago
+                                }
 
                             }
                             else if (accion == 0)
                             {
-                                Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+                                
                                 break;
                             }
 
@@ -166,12 +216,39 @@ namespace Uandes_Eats
 
                     else if (Ingresa && LogIn.UsuarioIniciado is Administradores)// Programa para admin
                     {
-                        Console.WriteLine("Programa para admin");
+                        while (true)
+                        {
+                            Console.WriteLine("0.- Salir");
+                            Console.WriteLine("1.- Agregar Local");
+                            string decadm = Console.ReadLine();
+                            while (true)
+                            {
+                                if (decadm == "1" || decadm == "0")
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Error , intente otra vez");
+                                    decadm = Console.ReadLine();
+                                }
+                            }
+                            if (decadm == "1")
+                            {
+                                Administradores Admin = new Administradores(LogIn.UsuarioIniciado.Rut, LogIn.UsuarioIniciado.Contraseña, LogIn.UsuarioIniciado.Telefono, LogIn.UsuarioIniciado.Mail, LogIn.UsuarioIniciado.Apellido, LogIn.UsuarioIniciado.Nombre);
+                                Locales.Add(Admin.AgregarLocal());
+                            }
+                            else if (decadm == "0")
+                            {
+                                break;
+                            }
+                        }
                     }
 
                     else if (Ingresa && LogIn.UsuarioIniciado is Repartidores)// Programa para Repartidores
                     {
-                        Console.WriteLine("Programa para admin");
+                        Console.WriteLine("Por ahora los repartidores no son necesarios");
+                        Console.WriteLine("Asi que shao.");
                     }
 
                     else
@@ -187,10 +264,11 @@ namespace Uandes_Eats
 
                 else if (resultado == 0)
                 {
-                    Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+                    
                     break;
                 }
             }
+            Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
 
             Console.ReadKey();
         }
@@ -227,13 +305,6 @@ namespace Uandes_Eats
 //Platos p29 = new Platos("Veggie", "Hamburguesa de porotos y zanahoria con cebolla, lechuga, mayonesa y tomate", "4490");
 //Platos p30 = new Platos("Bacon", "Hamburguesa con carne, queso chedar, tocino y salsa BBQ", "4990");
 
-//Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca");
-//Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades");
-//Local l3 = new Local("FoodTruck", "5 minutos", "Al frente entrada a Ingeniería");
-//Local l4 = new Local("Kiosko Reloj", "10 minutos", "Primer Piso Edificio Reloj");
-//Local l5 = new Local("Kiosko Ciruelos", "10 minutos", "Patio los Ciruelos");
-//Local l6 = new Local("Subway", "20 minutos", "Camino el Alba 12620");
-//Local l7 = new Local("Papa Johns", "40 minutos", "Camino el Alba 12620");
-//Local l8 = new Local("Wally´s", "30 minutos", "Camino el Alba 12620");
+
 
 

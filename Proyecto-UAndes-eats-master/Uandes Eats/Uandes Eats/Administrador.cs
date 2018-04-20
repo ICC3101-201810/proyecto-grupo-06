@@ -21,7 +21,7 @@ namespace Uandes_Eats
             string TiempoEspera = Console.ReadLine();
             Console.WriteLine("Ubicacion del local:");
             string Ubicacion = Console.ReadLine();
-            Console.WriteLine("Introdusca el menu del local:");
+            Console.WriteLine("Introduzca el menu del local:");
             Local local = new Local(Nombre, TiempoEspera, Ubicacion, new List<Platos> { });
             while (true)
             {
