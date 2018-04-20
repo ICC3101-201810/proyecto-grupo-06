@@ -12,3 +12,10 @@ C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\pr
 C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csproj.CoreCompileInputs.cache
 C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.exe
 C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.pdb
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csprojResolveAssemblyReference.cache
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csproj.CoreCompileInputs.cache
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.exe
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.pdb
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe.config
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe
+C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.pdb

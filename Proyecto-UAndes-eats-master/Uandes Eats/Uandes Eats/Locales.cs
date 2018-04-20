@@ -43,6 +43,7 @@ namespace Uandes_Eats
             {
                 Console.WriteLine($"Menu de {Nombre}");
                 int x = 1;
+
                 foreach (Platos plato in Menu)
                 {
                     Console.WriteLine($"{x}){plato.Nombre}");
@@ -51,6 +52,7 @@ namespace Uandes_Eats
                 Console.WriteLine($"{x})Volver a locales");
 
                 //Metodo Try Catch para ver si introduce bien los indices
+<<<<<<< HEAD
                 string indiceS = Console.ReadLine();
                 do
                 {
@@ -73,6 +75,20 @@ namespace Uandes_Eats
                     }
 
                 } while (indice < 0 & indice > x);
+=======
+                int.TryParse(Console.ReadLine(), out indice);
+                try
+                {
+                    int.TryParse(Console.ReadLine(), out indice);
+                }
+                catch
+                {
+                    Console.WriteLine("Comando invalido");
+                }
+             
+
+               
+>>>>>>> 46d74adbd7a277d832984d5402010ae87cbcc7be
 
                 if (indice != x)
                 {

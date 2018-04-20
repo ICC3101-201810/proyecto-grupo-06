@@ -8,12 +8,17 @@ namespace Uandes_Eats
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             int resultado;
             int accion;
+<<<<<<< HEAD
 
             BaseDatos BaseDeDatos = new BaseDatos();
+=======
+            List<Local> Locales = new List<Local>();
+>>>>>>> 46d74adbd7a277d832984d5402010ae87cbcc7be
             List<Usuarios> Usuarios = new List<Usuarios> { };
             LogIn LogIn = new LogIn(new List<Usuarios> { new Administradores("p", "p", "p", "p", "p", "p")});
 
@@ -47,18 +52,14 @@ namespace Uandes_Eats
                     //
                     if (Ingresa && LogIn.UsuarioIniciado is Clientes)// Programa para clientes
                     {
+                        Pedido pedido = new Pedido(new List<Platos>(), LogIn.UsuarioIniciado);
                         Console.WriteLine("Bienvenido");
-                        Console.WriteLine("1)Ver Locales");
-                        Console.WriteLine("2)Ver Pedidos");
-                        Console.WriteLine("0)Salir");
-                        string accionS = Console.ReadLine();
-
-                        while (accionS != "1" & accionS != "2" & accionS != "0")
-                        {
-                            Console.WriteLine("Comando inválido");
+                        while (true) {
                             Console.WriteLine("1)Ver Locales");
                             Console.WriteLine("2)Ver Pedidos");
+                            Console.WriteLine("3)Terminar Pedido");
                             Console.WriteLine("0)Salir");
+<<<<<<< HEAD
                             accionS = Console.ReadLine();
                         }
                         int.TryParse(accionS, out accion);
@@ -72,11 +73,116 @@ namespace Uandes_Eats
                         {
                             Console.WriteLine("metodo VerPedido");
                         }
+=======
+                            string accionS = Console.ReadLine();
 
-                        else if (accion == 0)
-                        {
-                            Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+                            while (accionS != "1" & accionS != "2" & accionS != "0" & accionS != "3")
+                            {
+                                Console.WriteLine("Comando inválido");
+                                Console.WriteLine("1)Ver Locales");
+                                Console.WriteLine("2)Ver Pedidos");
+                                Console.WriteLine("3)Terminar Pedido");
+                                Console.WriteLine("0)Salir");
+                                accionS = Console.ReadLine();
+                            }
+                            int.TryParse(accionS, out accion);
+
+                            if (accion == 1)
+                            {
+                                int resultadoi;
+                                int o = 0;
+                                int Plato1;
+                                int o1 = 0;
+
+                                List<string> num = new List<string>();
+                                num.Add("0");
+                                List<string> num1 = new List<string>();
+                                num1.Add("0");
+                                Console.WriteLine("0.- Para regresar al menu ");
+                                foreach (Local i in Locales)
+                                {
+                                    Console.WriteLine(o + ".- " + i.Nombre);
+                                    num.Add(o.ToString());
+                                    o++;
+
+                                }
+                                string resultadoSi = Console.ReadLine();
+                                while (num.Contains(resultadoS) == false)
+                                {
+                                    int opciones = 1;
+                                    Console.WriteLine("Comando inválido");
+                                    Console.WriteLine("0.- Para regresar al menu ");
+                                    foreach (Local i in Locales)
+                                    {
+                                        Console.WriteLine(opciones + ".- " + i.Nombre);
+                                        opciones++;
+                                    }
+                                    resultadoSi = Console.ReadLine();
+                                }
+                                int.TryParse(resultadoSi, out resultadoi);
+                                // Ahora vienen los platos
+                                if (resultadoi == 0)
+                                {
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine("0.- Para regresar al menu ");
+                                    foreach (Platos k in Locales[resultadoi].Menu)
+                                    {
+                                        Console.WriteLine(o1 + ".- " + k.Nombre);
+                                        num1.Add(o1.ToString());
+                                        o1++;
+                                    }
+                                    string plato1 = Console.ReadLine();
+
+                                    while (num1.Contains(plato1) == false)
+                                    {
+                                        int opciones = 1;
+                                        Console.WriteLine("Comando inválido");
+                                        Console.WriteLine("0.- Para regresar al menu ");
+                                        foreach (Platos i in Locales[resultadoi].Menu)
+                                        {
+                                            Console.WriteLine(opciones + ".- " + i.Nombre);
+                                            opciones++;
+                                        }
+                                        plato1 = Console.ReadLine();
+
+                                    }
+
+                                    int.TryParse(plato1, out Plato1);
+                                    if (Plato1 == 0)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        pedido.AgregarAlPedido(Locales[resultado].Menu[Plato1]);
+                                    }
+                                }
+
+                            }
+
+
+                            else if (accion == 2)
+                            {
+                                pedido.VerPedido();
+                            }
+                            else if (accion == 3)
+                            {
+                                //metodo para el termino de pedido
+
+                            }
+                            else if (accion == 0)
+                            {
+                                Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+                                break;
+                            }
+>>>>>>> 46d74adbd7a277d832984d5402010ae87cbcc7be
+
                         }
+                        
+                       
                     }
 
                     else if (Ingresa && LogIn.UsuarioIniciado is Administradores)// Programa para admin
