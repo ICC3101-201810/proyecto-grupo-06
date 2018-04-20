@@ -8,11 +8,21 @@ namespace Uandes_Eats
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
+            DateTime iuew = new DateTime();
+            DateTime iuew1 = new DateTime();
             int resultado;
             int accion;
+            List<Repartidores> repartidores = new List<Repartidores>();
+            Repartidores rep1 = new Repartidores("2", "2", "2", "2", "2", "2");
+            Repartidores rep2 = new Repartidores("3", "3", "3", "3", "3", "3");
+            List<RepartidoresActivos> repartidoresActivos = new List<RepartidoresActivos>();
+            repartidores.Add(rep1);
+            repartidores.Add(rep2);
+            repartidoresActivos.Add(new RepartidoresActivos(rep1, iuew));
+            repartidoresActivos.Add(new RepartidoresActivos(rep2, iuew1));
             List<Local> Locales = new List<Local>();
             List<Platos> m1 = new List<Platos>();
             List<Platos> m2 = new List<Platos>();
@@ -199,7 +209,8 @@ namespace Uandes_Eats
                                 if (ter == true)
                                 {
                                     AdminPC adminPC1 = pedido.VincularRepPed( Repartidorese1, pedido);
-                                    //Falta todo lo que es pago
+                                    WebPay paguito = new WebPay(LogIn.UsuarioIniciado, pedido.CalcularTotal());
+                                    break;
                                 }
 
                             }

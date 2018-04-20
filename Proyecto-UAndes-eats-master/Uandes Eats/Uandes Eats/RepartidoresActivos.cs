@@ -11,7 +11,7 @@ namespace Uandes_Eats
         Repartidores Repartidores;
         DateTime Time;
 
-        protected RepartidoresActivos(Repartidores Repartidores1, DateTime Time1)
+        public RepartidoresActivos(Repartidores Repartidores1, DateTime Time1)
         {
             Repartidores = Repartidores1;
             Time = Time1;

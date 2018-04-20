@@ -62,6 +62,7 @@ namespace Uandes_Eats
         }
         public void AgregarAlPedido(Platos plato)
         {
+
             PlatosCliente.Add(plato);
 
         }
@@ -107,6 +108,16 @@ namespace Uandes_Eats
             RepartidoresActivos activo1 = RepartidoresPorTiempo[0];
             AdminPC vinculado = new AdminPC(activo1.Repartidores1, pedido);
             return vinculado;
+        }
+        public int CalcularTotal()
+        {
+            int total = 0;
+            foreach (Platos i in PlatosCliente)
+            {
+                total=total + i.Precio;
+                
+            }
+            return total;
         }
     }
 }
