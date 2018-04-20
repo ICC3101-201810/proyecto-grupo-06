@@ -15,6 +15,7 @@ namespace Uandes_Eats
             DateTime iuew1 = new DateTime();
             int resultado;
             int accion;
+
             List<Repartidores> repartidores = new List<Repartidores>();
             Repartidores rep1 = new Repartidores("2", "2", "2", "2", "2", "2");
             Repartidores rep2 = new Repartidores("3", "3", "3", "3", "3", "3");
@@ -26,7 +27,7 @@ namespace Uandes_Eats
             List<Local> Locales = new List<Local>();
             List<Platos> m1 = new List<Platos>();
             List<Platos> m2 = new List<Platos>();
-            List<RepartidoresActivos> Repartidorese1= new List<RepartidoresActivos>();
+            List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos>();
             Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
             Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
             Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);
@@ -41,13 +42,20 @@ namespace Uandes_Eats
             m2.Add(p5);
             m2.Add(p6);
             m2.Add(p7);
-            Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca",m1);
-            Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades",m2);
+            Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca", m1);
+            Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades", m2);
             Locales.Add(l1);
             Locales.Add(l2);
 
-            List<Usuarios> Usuarios = new List<Usuarios>  ();
-            LogIn LogIn = new LogIn(new List<Usuarios> { new Administradores("p", "p", "p", "p", "p", "p")});
+            List<Usuarios> Usuarios = new List<Usuarios>();
+
+
+            BaseDatos BaseDeDatos = new BaseDatos();
+            Administradores adm11 = new Administradores("p", "p", "p", "p", "p", "p");
+            List<Usuarios> administradores = new List<Usuarios>();
+            administradores.Add(adm11);
+            LogIn LogIn = new LogIn(administradores);
+
 
             while (true)
             {
