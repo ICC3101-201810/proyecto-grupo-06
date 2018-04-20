@@ -75,7 +75,7 @@ namespace Uandes_Eats
             int total = 0;
             foreach (Platos i in PlatosCliente)
             {
-                total = +i.Precio;
+                total += i.Precio;
             }
             Console.WriteLine("El total de su pedido es: " + total);
             Console.WriteLine("Ingrese 1 si quire empezar busqueda de repartidor, y 0 si quiere volver al menu");

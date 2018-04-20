@@ -239,10 +239,11 @@ namespace Uandes_Eats
                         {
                             Console.WriteLine("0.- Salir");
                             Console.WriteLine("1.- Agregar Local");
+                            Console.WriteLine("2.- Agregar plato a local");
                             string decadm = Console.ReadLine();
                             while (true)
                             {
-                                if (decadm == "1" || decadm == "0")
+                                if (decadm == "1" || decadm == "0" || decadm == "2")
                                 {
                                     break;
                                 }
@@ -256,6 +257,40 @@ namespace Uandes_Eats
                             {
                                 Administradores Admin = new Administradores(LogIn.UsuarioIniciado.Rut, LogIn.UsuarioIniciado.Contraseña, LogIn.UsuarioIniciado.Telefono, LogIn.UsuarioIniciado.Mail, LogIn.UsuarioIniciado.Apellido, LogIn.UsuarioIniciado.Nombre);
                                 Locales.Add(Admin.AgregarLocal());
+                            }
+                            else if( decadm == "2")
+                            {
+                                int resultadoi;
+                                int o = 1;
+
+                                List<string> num = new List<string>();
+                                num.Add("0");
+                                List<string> num1 = new List<string>();
+                                num1.Add("0");
+                                Console.WriteLine("0.- Para regresar al menu ");
+                                foreach (Local i in Locales)
+                                {
+                                    Console.WriteLine(o + ".- " + i.Nombre);
+                                    num.Add(o.ToString());
+                                    o++;
+
+                                }
+                                string resultadoSi = Console.ReadLine();
+                                while (num.Contains(resultadoSi) == false)
+                                {
+                                    int opciones = 1;
+                                    Console.WriteLine("Comando inválido");
+                                    Console.WriteLine("0.- Para regresar al menu ");
+                                    foreach (Local i in Locales)
+                                    {
+                                        Console.WriteLine(opciones + ".- " + i.Nombre);
+                                        opciones++;
+                                    }
+                                    resultadoSi = Console.ReadLine();
+                                }
+                                int.TryParse(resultadoSi, out resultadoi);
+
+                                Locales[resultadoi - 1].AgregarPlato();
                             }
                             else if (decadm == "0")
                             {

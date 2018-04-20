@@ -51,5 +51,10 @@ namespace Uandes_Eats
             return local;
 
         }
+
+        public void AgregarPlatoLocal (Local local)
+        {
+            local.AgregarPlato();
+        }
     }
 }
