@@ -227,8 +227,10 @@ namespace Uandes_Eats
                                bool ter= pedido.TerminarPedido();
                                 if (ter == true)
                                 {
+                                    if 
                                     AdminPC adminPC1 = pedido.VincularRepPed( repartidoresActivos, pedido);
                                     WebPay paguito = new WebPay(LogIn.UsuarioIniciado, pedido.CalcularTotal());
+                                    paguito.PagoWebpay();
                                 }
 
                             }

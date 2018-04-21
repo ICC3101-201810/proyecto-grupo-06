@@ -78,24 +78,31 @@ namespace Uandes_Eats
                 total += i.Precio;
             }
             Console.WriteLine("El total de su pedido es: " + total);
-            Console.WriteLine("Ingrese 1 si quire empezar busqueda de repartidor, y 0 si quiere volver al menu");
-            string ya = Console.ReadLine();
-            while (true)
+            if (total != 0)
             {
-                if (ya == "1" || ya == "0")
+                Console.WriteLine("Ingrese 1 si quire empezar busqueda de repartidor, y 0 si quiere volver al menu");
+                string ya = Console.ReadLine();
+                while (true)
                 {
-                    break;
+                    if (ya == "1" || ya == "0")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Intente Nuevamente");
+                        ya = Console.ReadLine();
+
+                    }
+                }
+                if (ya == "1")
+                {
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Intente Nuevamente");
-                    ya = Console.ReadLine();
-
+                    return false;
                 }
-            }
-            if (ya == "1")
-            {
-                return true;
             }
             else
             {

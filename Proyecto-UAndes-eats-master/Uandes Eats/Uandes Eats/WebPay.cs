@@ -17,11 +17,12 @@ namespace Uandes_Eats
         }
         public void PagoWebpay()
         {
-            Console.WriteLine("1.- Si es Débito, 2.- Si es Crédito");
+            Console.WriteLine("Escoja metodo de pago");
+            Console.WriteLine("1.- Si es Débito, 2.- Si es Crédito, 3.- Si es Efectivo");
             string Pago = Console.ReadLine();
             while (true)
             {
-                if (Pago == "1" || Pago == "2")
+                if (Pago == "1" || Pago == "2" || Pago == "3")
                 {
                     break;
                 }
@@ -31,7 +32,7 @@ namespace Uandes_Eats
                     Pago = Console.ReadLine();
                 }
             }
-            if (Pago == "1")
+            if (Pago == "1" & Pago == "3")
             {
                 Console.WriteLine("Ahora tienes que tratar con el repartidor, exitoo");
             }
