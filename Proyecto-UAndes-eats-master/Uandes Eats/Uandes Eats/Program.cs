@@ -12,12 +12,14 @@ namespace Uandes_Eats
 
         static void Main(string[] args)
         {
-            FileStream TextUsuarios = new FileStream("BaseDeDatosUsuarios.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-            FileStream TextLocales = new FileStream("BaseDeDatosLocales.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            //FileStream TextUsuarios = new FileStream("BaseDeDatosUsuarios.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            //FileStream TextLocales = new FileStream("BaseDeDatosLocales.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
 
-            BaseDatos BaseDeDatos = new BaseDatos();
-            BaseDeDatos.ConseguirLocales(TextLocales);
-            BaseDeDatos.ConseguirUsuarios(TextUsuarios);
+            //BaseDatos BaseDeDatos = new BaseDatos();
+            //BaseDeDatos.ConseguirLocales(TextLocales);
+            //BaseDeDatos.ConseguirUsuarios(TextUsuarios);
+
+            //Todavia no nos enseñan a ocupar textos
 
             DateTime iuew = new DateTime();
             DateTime iuew1 = new DateTime();
@@ -35,7 +37,7 @@ namespace Uandes_Eats
             List<Local> Locales = new List<Local>();
             List<Platos> m1 = new List<Platos>();
             List<Platos> m2 = new List<Platos>();
-            List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos>();
+            List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos> { };
             Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
             Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
             Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);
@@ -58,11 +60,12 @@ namespace Uandes_Eats
             List<Usuarios> Usuarios = new List<Usuarios>();
 
 
-            //BaseDatos BaseDeDatos = new BaseDatos();
+            BaseDatos BaseDeDatos = new BaseDatos();
             Administradores adm11 = new Administradores("p", "p", "p", "p", "p", "p");
             List<Usuarios> administradores = new List<Usuarios>();
             administradores.Add(adm11);
             LogIn LogIn = new LogIn(administradores);
+            //El LogIn deberia ir con BaseDeDatos.ConseguirUsuarios(text.txt) pero no se pudo ocupar textos por lo que lo dejamos de ejemplo
 
 
             while (true)
@@ -224,9 +227,8 @@ namespace Uandes_Eats
                                bool ter= pedido.TerminarPedido();
                                 if (ter == true)
                                 {
-                                    AdminPC adminPC1 = pedido.VincularRepPed( Repartidorese1, pedido);
+                                    AdminPC adminPC1 = pedido.VincularRepPed( repartidoresActivos, pedido);
                                     WebPay paguito = new WebPay(LogIn.UsuarioIniciado, pedido.CalcularTotal());
-                                    break;
                                 }
 
                             }
@@ -332,8 +334,8 @@ namespace Uandes_Eats
             }
             Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
 
-            BaseDeDatos.GuardarLocales(TextLocales);
-            BaseDeDatos.GuardarUsuarios(TextUsuarios);
+            //BaseDeDatos.GuardarLocales(TextLocales);
+            //BaseDeDatos.GuardarUsuarios(TextUsuarios);
 
             Console.ReadKey();
         }
