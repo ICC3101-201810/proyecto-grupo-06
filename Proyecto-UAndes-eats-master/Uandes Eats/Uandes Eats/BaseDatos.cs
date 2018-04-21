@@ -16,7 +16,7 @@ namespace Uandes_Eats
 
         public void GuardarUsuarios(FileStream TextUsuarios)
         {
-            using (var writer = new StreamWriter(@"C:\programs\BaseDeDatosUsuarios.txt"))
+            using (var writer = new StreamWriter(TextUsuarios))
             {
                 foreach(Usuarios usuario in usuarios)
                 {
@@ -38,7 +38,7 @@ namespace Uandes_Eats
 
         public void ConseguirUsuarios(FileStream TextUsuarios)
         {
-            using (StreamReader reader = new StreamReader("BaseDeDatosUsuarios.txt"))
+            using (StreamReader reader = new StreamReader(TextUsuarios))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
@@ -54,7 +54,7 @@ namespace Uandes_Eats
 
         public void GuardarLocales(FileStream TextLocales)
         {
-            using (var writer = new StreamWriter(@"C:\programs\BaseDeDatosUsuarios.txt"))
+            using (var writer = new StreamWriter(TextLocales))
             {
                 foreach (Local local in Locales)
                 {
@@ -73,7 +73,7 @@ namespace Uandes_Eats
 
         public void ConseguirLocales(FileStream TextLocales)
         {
-            using (StreamReader reader = new StreamReader("BaseDeDatosLocales.txt"))
+            using (StreamReader reader = new StreamReader(TextLocales))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)

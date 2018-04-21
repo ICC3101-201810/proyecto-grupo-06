@@ -12,12 +12,12 @@ namespace Uandes_Eats
 
         static void Main(string[] args)
         {
-            //FileStream TextUsuarios = new FileStream("BaseDeDatosUsuarios.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-            //FileStream TextLocales = new FileStream("BaseDeDatosLocales.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            FileStream TextUsuarios = new FileStream("BaseDeDatosUsuarios.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            FileStream TextLocales = new FileStream("BaseDeDatosLocales.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
 
-            //BaseDatos BaseDeDatos = new BaseDatos();
-            //BaseDeDatos.ConseguirLocales(TextLocales);
-            //BaseDeDatos.ConseguirUsuarios(TextUsuarios);
+            BaseDatos BaseDeDatos = new BaseDatos();
+            BaseDeDatos.ConseguirLocales(TextLocales);
+            BaseDeDatos.ConseguirUsuarios(TextUsuarios);
 
             DateTime iuew = new DateTime();
             DateTime iuew1 = new DateTime();
@@ -58,7 +58,7 @@ namespace Uandes_Eats
             List<Usuarios> Usuarios = new List<Usuarios>();
 
 
-            BaseDatos BaseDeDatos = new BaseDatos();
+            //BaseDatos BaseDeDatos = new BaseDatos();
             Administradores adm11 = new Administradores("p", "p", "p", "p", "p", "p");
             List<Usuarios> administradores = new List<Usuarios>();
             administradores.Add(adm11);
@@ -331,6 +331,9 @@ namespace Uandes_Eats
                 }
             }
             Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
+
+            BaseDeDatos.GuardarLocales(TextLocales);
+            BaseDeDatos.GuardarUsuarios(TextUsuarios);
 
             Console.ReadKey();
         }
