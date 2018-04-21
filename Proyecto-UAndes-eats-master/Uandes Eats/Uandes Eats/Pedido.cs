@@ -106,6 +106,7 @@ namespace Uandes_Eats
             }
             else
             {
+                Console.WriteLine("No hay nada que pagar");
                 return false;
             }
         }
