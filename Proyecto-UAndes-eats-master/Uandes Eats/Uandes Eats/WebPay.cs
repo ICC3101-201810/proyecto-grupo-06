@@ -32,7 +32,7 @@ namespace Uandes_Eats
                     Pago = Console.ReadLine();
                 }
             }
-            if (Pago == "1" & Pago == "3")
+            if (Pago == "1" || Pago == "3")
             {
                 Console.WriteLine("Ahora tienes que tratar con el repartidor, exitoo");
             }
