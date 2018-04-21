@@ -107,8 +107,12 @@ namespace Uandes_Eats
             List<RepartidoresActivos> RepartidoresPorTiempo = RepartidoresActivos.OrderBy(rep => rep.Time1).ToList();
             RepartidoresActivos activo1 = RepartidoresPorTiempo[0];
             AdminPC vinculado = new AdminPC(activo1.Repartidores1, pedido);
+            Console.WriteLine("Su repartidor ya fue vinculado");
+            Console.WriteLine("Su nombre es: " + vinculado.Repartidor.Nombre + " " + vinculado.Repartidor.Apellido);
+            Console.WriteLine("Su telefono es: " + vinculado.Repartidor.Telefono);
             return vinculado;
         }
+
         public int CalcularTotal()
         {
             int total = 0;

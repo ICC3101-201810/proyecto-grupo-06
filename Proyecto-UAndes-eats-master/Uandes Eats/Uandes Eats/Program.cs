@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Uandes_Eats
 {
@@ -11,6 +12,13 @@ namespace Uandes_Eats
 
         static void Main(string[] args)
         {
+            //FileStream TextUsuarios = new FileStream("BaseDeDatosUsuarios.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            //FileStream TextLocales = new FileStream("BaseDeDatosLocales.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+            //BaseDatos BaseDeDatos = new BaseDatos();
+            //BaseDeDatos.ConseguirLocales(TextLocales);
+            //BaseDeDatos.ConseguirUsuarios(TextUsuarios);
+
             DateTime iuew = new DateTime();
             DateTime iuew1 = new DateTime();
             int resultado;

@@ -8,8 +8,8 @@ namespace Uandes_Eats
 {
     class Clientes : Usuarios
     {
-        public Clientes(string rut, string contraseña, string telefono, string mail, string apellido, string nombre) : base(rut, contraseña, telefono, mail, apellido, nombre)
+        public Clientes(string nombre, string apellido, string rut, string mail, string telefono, string contraseña) : base(nombre, apellido, rut, mail, telefono, contraseña)
         {
         }
-}
+    }
 }

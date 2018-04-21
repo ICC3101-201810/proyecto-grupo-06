@@ -8,7 +8,7 @@ namespace Uandes_Eats
 {
     class Administradores : Usuarios
     {
-        public Administradores(string rut, string contraseña, string telefono, string mail, string apellido, string nombre) : base(rut, contraseña, telefono, mail, apellido, nombre)
+        public Administradores(string nombre, string apellido, string rut, string mail, string telefono, string contraseña) : base(nombre, apellido, rut, mail, telefono, contraseña)
         {
         }
 

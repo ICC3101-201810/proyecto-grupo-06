@@ -8,9 +8,8 @@ namespace Uandes_Eats
 {
     class Repartidores : Usuarios
     {
-        public Repartidores(string rut, string contraseña, string telefono, string mail, string apellido, string nombre) : base(rut, contraseña, telefono, mail, apellido, nombre)
+        public Repartidores(string nombre, string apellido, string rut, string mail, string telefono, string contraseña) : base(nombre, apellido, rut, mail, telefono, contraseña)
         {
-
         }
     }
 }
