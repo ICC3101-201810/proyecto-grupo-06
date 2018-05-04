@@ -28,7 +28,7 @@ namespace Uandes_Eats
                 }
                 else
                 {
-                    Console.WriteLine("1.- Si es en efectivo, 2.- Si es Crédito");
+                    Console.WriteLine("1.- Si es en efectivo, 2.- Si es Crédito, 3.- Si es Efectivo");
                     Pago = Console.ReadLine();
                 }
             }

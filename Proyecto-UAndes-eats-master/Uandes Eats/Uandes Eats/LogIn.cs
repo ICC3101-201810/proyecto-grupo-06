@@ -31,8 +31,20 @@ namespace Uandes_Eats
             string Telefono = Console.ReadLine();
             Console.WriteLine("Contraseña: ");
             string Contraseña = Console.ReadLine();
-
-            UsuariosRegistrados.Add(new Clientes(Nombre, Apellido, Rut, Mail, Telefono, Contraseña));
+            bool crear = true;
+            foreach (Usuarios usuario in UsuariosRegistrados)
+            {
+                if (usuario.Rut == Rut)
+                {
+                    Console.WriteLine("Este RUT ya esta registrado");
+                    crear = false;
+                    break;
+                }
+            }
+            if (crear)
+            {
+                UsuariosRegistrados.Add(new Clientes(Nombre, Apellido, Rut, Mail, Telefono, Contraseña));
+            }
         }
 
         public bool IngresarACuenta (string RUT, string ContraseñaCuenta)

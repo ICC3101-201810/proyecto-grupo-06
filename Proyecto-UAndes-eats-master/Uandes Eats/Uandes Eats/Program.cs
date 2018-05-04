@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace Uandes_Eats
 {
@@ -34,37 +36,61 @@ namespace Uandes_Eats
             repartidores.Add(rep2);
             repartidoresActivos.Add(new RepartidoresActivos(rep1, iuew));
             repartidoresActivos.Add(new RepartidoresActivos(rep2, iuew1));
-            List<Local> Locales = new List<Local>();
-            List<Platos> m1 = new List<Platos>();
-            List<Platos> m2 = new List<Platos>();
-            List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos> { };
-            Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
-            Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
-            Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);
-            Platos p4 = new Platos("Media Luna con queso", "Media luna con jamón y queso", 2190);
-            m1.Add(p1);
-            m1.Add(p2);
-            m1.Add(p3);
-            m1.Add(p4);
-            Platos p5 = new Platos("Ave Pimentón", "Sandwich de pasta de pollo con pimentón molido", 1590);
-            Platos p6 = new Platos("Empanada napolitana", "Empanada con jamón, tomate y queso", 1190);
-            Platos p7 = new Platos("Brownie", "Brownie de chocolate y nuez", 590);
-            m2.Add(p5);
-            m2.Add(p6);
-            m2.Add(p7);
-            Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca", m1);
-            Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades", m2);
-            Locales.Add(l1);
-            Locales.Add(l2);
+            //List<Local> Locales = new List<Local>();
+            //List<Platos> m1 = new List<Platos>();
+            //List<Platos> m2 = new List<Platos>();
+            //List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos> { };
+            //Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
+            //Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
+            //Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);
+            //Platos p4 = new Platos("Media Luna con queso", "Media luna con jamón y queso", 2190);
+            //m1.Add(p1);
+            //m1.Add(p2);
+            //m1.Add(p3);
+            //m1.Add(p4);
+            //Platos p5 = new Platos("Ave Pimentón", "Sandwich de pasta de pollo con pimentón molido", 1590);
+            //Platos p6 = new Platos("Empanada napolitana", "Empanada con jamón, tomate y queso", 1190);
+            //Platos p7 = new Platos("Brownie", "Brownie de chocolate y nuez", 590);
+            //m2.Add(p5);
+            //m2.Add(p6);
+            //m2.Add(p7);
+            //Local l1 = new Local("Cafetería Biblioteca", "30 minutos", "Biblioteca", m1);
+            //Local l2 = new Local("Cafetería Humanidades", "25 minutos", "Edificio Humanidades", m2);
+            //Locales.Add(l1);
+            //Locales.Add(l2);
+            List<Local> Locales = new List<Local> { };
+            try
+            {
+                using (Stream stream = File.Open("DatosLocales.bin", FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
 
-            List<Usuarios> Usuarios = new List<Usuarios>();
+                    Locales = (List<Local>)bin.Deserialize(stream);
+                }
+            }
+            catch (IOException)
+            {
+            }
+
+            List<Usuarios> usuarios = new List<Usuarios>();
+            try
+            {
+                using (Stream stream = File.Open("DatosUsuarios.bin", FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+
+                    usuarios = (List<Usuarios>)bin.Deserialize(stream);
+                }
+            }
+            catch (IOException)
+            {
+            }
 
 
-            BaseDatos BaseDeDatos = new BaseDatos();
-            Administradores adm11 = new Administradores("p", "p", "p", "p", "p", "p");
-            List<Usuarios> administradores = new List<Usuarios>();
-            administradores.Add(adm11);
-            LogIn LogIn = new LogIn(administradores);
+            //BaseDatos BaseDeDatos = new BaseDatos();
+            //Administradores adm11 = new Administradores("Pedro", "Naretto", "19689484-5", "ppnaretto@miuandes.cl", "74290557", "p");
+            //usuarios.Add(adm11);
+            LogIn LogIn = new LogIn(usuarios);
             //El LogIn deberia ir con BaseDeDatos.ConseguirUsuarios(text.txt) pero no se pudo ocupar textos por lo que lo dejamos de ejemplo
 
 
@@ -249,6 +275,7 @@ namespace Uandes_Eats
                     {
                         while (true)
                         {
+                            Console.WriteLine("Bienvenido Administrador");
                             Console.WriteLine("0.- Salir");
                             Console.WriteLine("1.- Agregar Local");
                             Console.WriteLine("2.- Agregar plato a local");
@@ -272,37 +299,43 @@ namespace Uandes_Eats
                             }
                             else if( decadm == "2")
                             {
-                                int resultadoi;
-                                int o = 1;
-
-                                List<string> num = new List<string>();
-                                num.Add("0");
-                                List<string> num1 = new List<string>();
-                                num1.Add("0");
-                                Console.WriteLine("0.- Para regresar al menu ");
-                                foreach (Local i in Locales)
+                                while (true)
                                 {
-                                    Console.WriteLine(o + ".- " + i.Nombre);
-                                    num.Add(o.ToString());
-                                    o++;
+                                    int resultadoi;
+                                    int o = 1;
 
-                                }
-                                string resultadoSi = Console.ReadLine();
-                                while (num.Contains(resultadoSi) == false)
-                                {
-                                    int opciones = 1;
-                                    Console.WriteLine("Comando inválido");
+                                    List<string> num = new List<string>();
+                                    num.Add("0");
+                                    List<string> num1 = new List<string>();
+                                    num1.Add("0");
                                     Console.WriteLine("0.- Para regresar al menu ");
                                     foreach (Local i in Locales)
                                     {
-                                        Console.WriteLine(opciones + ".- " + i.Nombre);
-                                        opciones++;
-                                    }
-                                    resultadoSi = Console.ReadLine();
-                                }
-                                int.TryParse(resultadoSi, out resultadoi);
+                                        Console.WriteLine(o + ".- " + i.Nombre);
+                                        num.Add(o.ToString());
+                                        o++;
 
-                                Locales[resultadoi - 1].AgregarPlato();
+                                    }
+                                    string resultadoSi = Console.ReadLine();
+                                    while (num.Contains(resultadoSi) == false)
+                                    {
+                                        int opciones = 1;
+                                        Console.WriteLine("Comando inválido");
+                                        Console.WriteLine("0.- Para regresar al menu ");
+                                        foreach (Local i in Locales)
+                                        {
+                                            Console.WriteLine(opciones + ".- " + i.Nombre);
+                                            opciones++;
+                                        }
+                                        resultadoSi = Console.ReadLine();
+                                    }
+                                    int.TryParse(resultadoSi, out resultadoi);
+                                    if (resultadoi == 0)
+                                    {
+                                        break;
+                                    }
+                                    Locales[resultadoi - 1].AgregarPlato();
+                                }
                             }
                             else if (decadm == "0")
                             {
@@ -336,8 +369,30 @@ namespace Uandes_Eats
             }
             Console.WriteLine("Adiós y Gracias por preferir Uandes Eats");
 
-            //BaseDeDatos.GuardarLocales(TextLocales);
-            //BaseDeDatos.GuardarUsuarios(TextUsuarios);
+            
+            try
+            {
+                using (Stream stream = File.Open("DatosLocales.bin", FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, Locales);
+                }
+            }
+            catch (IOException)
+            {
+            }
+
+            try
+            {
+                using (Stream stream = File.Open("DatosUsuarios.bin", FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, usuarios);
+                }
+            }
+            catch (IOException)
+            {
+            }
 
             Console.ReadKey();
         }
