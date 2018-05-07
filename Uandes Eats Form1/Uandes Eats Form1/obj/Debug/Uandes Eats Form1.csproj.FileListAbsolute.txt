@@ -1,0 +1,10 @@
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\bin\Debug\Uandes Eats Form1.exe.config
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\bin\Debug\Uandes Eats Form1.exe
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\bin\Debug\Uandes Eats Form1.pdb
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes Eats Form1.csprojResolveAssemblyReference.cache
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes_Eats_Form1.Inicio.resources
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes_Eats_Form1.Properties.Resources.resources
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes Eats Form1.csproj.GenerateResource.cache
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes Eats Form1.csproj.CoreCompileInputs.cache
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes Eats Form1.exe
+C:\Users\Fede\source\repos\Uandes Eats Form1\Uandes Eats Form1\obj\Debug\Uandes Eats Form1.pdb
