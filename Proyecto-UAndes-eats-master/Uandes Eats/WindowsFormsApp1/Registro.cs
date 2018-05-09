@@ -21,5 +21,12 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void AtrasBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 F1 = new Form1();
+            F1.ShowDialog();
+        }
     }
 }

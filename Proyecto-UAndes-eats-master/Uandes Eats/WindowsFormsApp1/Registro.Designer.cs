@@ -100,6 +100,7 @@
             this.AtrasBoton.TabIndex = 21;
             this.AtrasBoton.Text = "Atras";
             this.AtrasBoton.UseVisualStyleBackColor = true;
+            this.AtrasBoton.Click += new System.EventHandler(this.AtrasBoton_Click);
             // 
             // RegistrarseBoton
             // 
