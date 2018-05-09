@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
-namespace Uandes_Eats
+namespace WindowsFormsApp1
 {
     [Serializable()]
-    class Repartidores : Usuarios
+    public class Repartidores : Usuarios
     {
         public Repartidores(string nombre, string apellido, string rut, string mail, string telefono, string contraseña) : base(nombre, apellido, rut, mail, telefono, contraseña)
         {

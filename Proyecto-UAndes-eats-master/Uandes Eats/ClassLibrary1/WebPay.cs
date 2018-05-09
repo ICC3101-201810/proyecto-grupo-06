@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uandes_Eats
+namespace WindowsFormsApp1
 {
-    class WebPay
+    public class WebPay
     {
         Usuarios Usuarios;
         int Total;

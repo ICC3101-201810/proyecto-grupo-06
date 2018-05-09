@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uandes_Eats
+namespace WindowsFormsApp1
 {
-    class RepartidoresActivos
+    public class RepartidoresActivos
     {
         Repartidores Repartidores;
         DateTime Time;

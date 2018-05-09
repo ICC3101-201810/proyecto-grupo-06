@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
-namespace Uandes_Eats
+namespace WindowsFormsApp1
 {
     [Serializable()]
-    class Platos
+    public class Platos
     {
         public string Nombre;
         public string Descripcion;

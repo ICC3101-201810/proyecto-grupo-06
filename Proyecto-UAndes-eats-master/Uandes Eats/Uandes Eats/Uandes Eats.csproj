@@ -44,23 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador.cs" />
-    <Compile Include="AdminPC.cs" />
-    <Compile Include="BaseDatos.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Locales.cs" />
-    <Compile Include="LogIn.cs" />
-    <Compile Include="Pedido.cs" />
-    <Compile Include="Platos.cs" />
-    <Compile Include="Repartidor.cs" />
-    <Compile Include="RepartidoresActivos.cs" />
-    <Compile Include="Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebPay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{0c1cd8c4-e08b-465b-a7a6-f7feeb8a7209}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uandes_Eats
+namespace WindowsFormsApp1
 {
     
-    class AdminPC
+    public class AdminPC
     {
         public Repartidores Repartidor;
         public Pedido Pedido;
