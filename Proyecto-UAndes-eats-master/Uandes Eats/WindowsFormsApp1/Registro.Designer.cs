@@ -42,6 +42,8 @@
             this.ApellidoTextBox = new System.Windows.Forms.TextBox();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.NombreRegistro = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TipoUsuarioCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TelefonoRegistro
@@ -160,11 +162,34 @@
             this.NombreRegistro.TabIndex = 14;
             this.NombreRegistro.Text = "Nombre:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(197, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Tipo de usuario:";
+            // 
+            // TipoUsuarioCombo
+            // 
+            this.TipoUsuarioCombo.FormattingEnabled = true;
+            this.TipoUsuarioCombo.Items.AddRange(new object[] {
+            "Cliente",
+            "Repartidor"});
+            this.TipoUsuarioCombo.Location = new System.Drawing.Point(287, 13);
+            this.TipoUsuarioCombo.Name = "TipoUsuarioCombo";
+            this.TipoUsuarioCombo.Size = new System.Drawing.Size(231, 21);
+            this.TipoUsuarioCombo.TabIndex = 30;
+            this.TipoUsuarioCombo.SelectedIndexChanged += new System.EventHandler(this.TipoUsuarioCombo_SelectedIndexChanged);
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TipoUsuarioCombo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.TelefonoRegistro);
             this.Controls.Add(this.TelefonoTextBox);
             this.Controls.Add(this.MailRegistro);
@@ -181,6 +206,7 @@
             this.Controls.Add(this.NombreRegistro);
             this.Name = "Registro";
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.Registro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +228,7 @@
         private System.Windows.Forms.TextBox ApellidoTextBox;
         private System.Windows.Forms.TextBox NombreTextBox;
         private System.Windows.Forms.Label NombreRegistro;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox TipoUsuarioCombo;
     }
 }
