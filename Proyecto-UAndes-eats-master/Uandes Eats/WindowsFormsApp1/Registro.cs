@@ -12,20 +12,26 @@ namespace WindowsFormsApp1
 {
     public partial class Registro : Form
     {
-        public Registro()
+        List<Usuarios> usuarios;
+        List<Local> locales;
+
+        public Registro(List<Usuarios> usuarios, List<Local> locales)
         {
             InitializeComponent();
+            this.usuarios = usuarios;
+            this.locales = locales;
         }
 
         private void RegistrarseBoton_Click(object sender, EventArgs e)
         {
+            usuarios.Add(new Clientes(NombreTextBox.Text, ApellidoTextBox.Text, RutTextBox.Text, MailTextBox.Text, TelefonoTextBox.Text, ContraseñaTextBox.Text));
 
         }
 
         private void AtrasBoton_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 F1 = new Form1();
+            Form1 F1 = new Form1(usuarios, locales);
             F1.ShowDialog();
         }
     }

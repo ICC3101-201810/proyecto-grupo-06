@@ -12,9 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        List<Usuarios> usuarios;
+        List<Local> locales;
+        public Form1(List<Usuarios> usuarios, List<Local> locales)
         {
             InitializeComponent();
+            this.usuarios = usuarios;
+            this.locales = locales;
         }
 
         private void SalirBoton_Click(object sender, EventArgs e)
@@ -25,14 +29,14 @@ namespace WindowsFormsApp1
         private void RegistrarseBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registro F2 = new Registro();
+            Registro F2 = new Registro(usuarios, locales);
             F2.Show();
         }
 
         private void IniciarSesionBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            IniciarSesion F3 = new IniciarSesion();
+            IniciarSesion F3 = new IniciarSesion(usuarios, locales);
             F3.Show();
         }
     }
