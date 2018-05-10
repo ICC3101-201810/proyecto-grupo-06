@@ -34,8 +34,11 @@
             this.LocalesComboBox = new System.Windows.Forms.ComboBox();
             this.PedidoCliente = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.SacarCarroBoton = new System.Windows.Forms.Button();
+            this.TotalPrecio = new System.Windows.Forms.Label();
+            this.DescripcionPrecioPlato = new System.Windows.Forms.ListBox();
+            this.AgregarPlatoCarroBoton = new System.Windows.Forms.Button();
+            this.TotalListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // CerrarSesionBoton
@@ -50,7 +53,7 @@
             // 
             // TerminarPedidoBoton
             // 
-            this.TerminarPedidoBoton.Location = new System.Drawing.Point(22, 72);
+            this.TerminarPedidoBoton.Location = new System.Drawing.Point(22, 273);
             this.TerminarPedidoBoton.Name = "TerminarPedidoBoton";
             this.TerminarPedidoBoton.Size = new System.Drawing.Size(163, 49);
             this.TerminarPedidoBoton.TabIndex = 4;
@@ -62,8 +65,9 @@
             this.MenuClientes.FormattingEnabled = true;
             this.MenuClientes.Location = new System.Drawing.Point(191, 39);
             this.MenuClientes.Name = "MenuClientes";
-            this.MenuClientes.Size = new System.Drawing.Size(585, 303);
+            this.MenuClientes.Size = new System.Drawing.Size(585, 199);
             this.MenuClientes.TabIndex = 6;
+            this.MenuClientes.SelectedIndexChanged += new System.EventHandler(this.MenuClientes_SelectedIndexChanged);
             // 
             // LocalesComboBox
             // 
@@ -78,7 +82,7 @@
             // PedidoCliente
             // 
             this.PedidoCliente.FormattingEnabled = true;
-            this.PedidoCliente.Location = new System.Drawing.Point(22, 155);
+            this.PedidoCliente.Location = new System.Drawing.Point(22, 85);
             this.PedidoCliente.Name = "PedidoCliente";
             this.PedidoCliente.Size = new System.Drawing.Size(163, 121);
             this.PedidoCliente.TabIndex = 7;
@@ -86,37 +90,67 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 139);
+            this.label1.Location = new System.Drawing.Point(19, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Tu pedido:";
             // 
-            // button1
+            // SacarCarroBoton
             // 
-            this.button1.Location = new System.Drawing.Point(22, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sacar del carro";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SacarCarroBoton.Location = new System.Drawing.Point(22, 212);
+            this.SacarCarroBoton.Name = "SacarCarroBoton";
+            this.SacarCarroBoton.Size = new System.Drawing.Size(163, 23);
+            this.SacarCarroBoton.TabIndex = 9;
+            this.SacarCarroBoton.Text = "Sacar del carro";
+            this.SacarCarroBoton.UseVisualStyleBackColor = true;
+            this.SacarCarroBoton.Click += new System.EventHandler(this.SacarCarroBoton_Click);
             // 
-            // label2
+            // TotalPrecio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 290);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Total:";
+            this.TotalPrecio.AutoSize = true;
+            this.TotalPrecio.Location = new System.Drawing.Point(19, 238);
+            this.TotalPrecio.Name = "TotalPrecio";
+            this.TotalPrecio.Size = new System.Drawing.Size(34, 13);
+            this.TotalPrecio.TabIndex = 10;
+            this.TotalPrecio.Text = "Total:";
+            // 
+            // DescripcionPrecioPlato
+            // 
+            this.DescripcionPrecioPlato.FormattingEnabled = true;
+            this.DescripcionPrecioPlato.Location = new System.Drawing.Point(191, 256);
+            this.DescripcionPrecioPlato.Name = "DescripcionPrecioPlato";
+            this.DescripcionPrecioPlato.Size = new System.Drawing.Size(436, 82);
+            this.DescripcionPrecioPlato.TabIndex = 11;
+            // 
+            // AgregarPlatoCarroBoton
+            // 
+            this.AgregarPlatoCarroBoton.Location = new System.Drawing.Point(633, 256);
+            this.AgregarPlatoCarroBoton.Name = "AgregarPlatoCarroBoton";
+            this.AgregarPlatoCarroBoton.Size = new System.Drawing.Size(143, 82);
+            this.AgregarPlatoCarroBoton.TabIndex = 12;
+            this.AgregarPlatoCarroBoton.Text = "Agregar plato al carro";
+            this.AgregarPlatoCarroBoton.UseVisualStyleBackColor = true;
+            this.AgregarPlatoCarroBoton.Click += new System.EventHandler(this.AgregarPlatoCarroBoton_Click);
+            // 
+            // TotalListBox
+            // 
+            this.TotalListBox.FormattingEnabled = true;
+            this.TotalListBox.Location = new System.Drawing.Point(59, 238);
+            this.TotalListBox.Name = "TotalListBox";
+            this.TotalListBox.Size = new System.Drawing.Size(120, 17);
+            this.TotalListBox.TabIndex = 13;
             // 
             // ClienteIniciado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TotalListBox);
+            this.Controls.Add(this.AgregarPlatoCarroBoton);
+            this.Controls.Add(this.DescripcionPrecioPlato);
+            this.Controls.Add(this.TotalPrecio);
+            this.Controls.Add(this.SacarCarroBoton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PedidoCliente);
             this.Controls.Add(this.MenuClientes);
@@ -138,7 +172,10 @@
         private System.Windows.Forms.ComboBox LocalesComboBox;
         private System.Windows.Forms.ListBox PedidoCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button SacarCarroBoton;
+        private System.Windows.Forms.Label TotalPrecio;
+        private System.Windows.Forms.ListBox DescripcionPrecioPlato;
+        private System.Windows.Forms.Button AgregarPlatoCarroBoton;
+        private System.Windows.Forms.ListBox TotalListBox;
     }
 }
