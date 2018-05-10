@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
 
         private void IngresarBoton_Click(object sender, EventArgs e)
         {
-            if(RutTextBox.Text == "" || ContraseñaTextBox.Text == "")
+            if(RutTextBox.Text == "" || ContraseñaTextBox.Text == ""|| IniciarComoComboBox.SelectedIndex== null)
             {
                 MessageBox.Show("Rut o contraseña invalidos");
 
@@ -64,6 +64,16 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Rut o contraseña invalidos");
                 }
             }
+        }
+
+        private void IniciarSesion_Load(object sender, EventArgs e)
+        {
+            //IniciarComoComboBox.VisibleChanged = "CLiente";
+        }
+
+        private void IniciarComoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

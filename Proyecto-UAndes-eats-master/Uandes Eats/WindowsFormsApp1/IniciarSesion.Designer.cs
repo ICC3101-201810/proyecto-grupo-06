@@ -34,6 +34,8 @@
             this.RutTextBox = new System.Windows.Forms.TextBox();
             this.ContraseñaTextBox = new System.Windows.Forms.TextBox();
             this.AtrasBoton = new System.Windows.Forms.Button();
+            this.IniciarComoComboBox = new System.Windows.Forms.ComboBox();
+            this.IniciarComo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RutInicio
@@ -88,11 +90,35 @@
             this.AtrasBoton.UseVisualStyleBackColor = true;
             this.AtrasBoton.Click += new System.EventHandler(this.AtrasBoton_Click);
             // 
+            // IniciarComoComboBox
+            // 
+            this.IniciarComoComboBox.AccessibleName = "";
+            this.IniciarComoComboBox.Items.AddRange(new object[] {
+            "Cliente",
+            "Repartidor"});
+            this.IniciarComoComboBox.Location = new System.Drawing.Point(336, 182);
+            this.IniciarComoComboBox.Name = "IniciarComoComboBox";
+            this.IniciarComoComboBox.Size = new System.Drawing.Size(121, 21);
+            this.IniciarComoComboBox.TabIndex = 6;
+            this.IniciarComoComboBox.Tag = "";
+            this.IniciarComoComboBox.SelectedIndexChanged += new System.EventHandler(this.IniciarComoComboBox_SelectedIndexChanged);
+            // 
+            // IniciarComo
+            // 
+            this.IniciarComo.AutoSize = true;
+            this.IniciarComo.Location = new System.Drawing.Point(263, 185);
+            this.IniciarComo.Name = "IniciarComo";
+            this.IniciarComo.Size = new System.Drawing.Size(67, 13);
+            this.IniciarComo.TabIndex = 7;
+            this.IniciarComo.Text = "Iniciar como:";
+            // 
             // IniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.IniciarComo);
+            this.Controls.Add(this.IniciarComoComboBox);
             this.Controls.Add(this.AtrasBoton);
             this.Controls.Add(this.ContraseñaTextBox);
             this.Controls.Add(this.RutTextBox);
@@ -101,6 +127,7 @@
             this.Controls.Add(this.RutInicio);
             this.Name = "IniciarSesion";
             this.Text = "IniciarSesion";
+            this.Load += new System.EventHandler(this.IniciarSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +141,7 @@
         private System.Windows.Forms.TextBox RutTextBox;
         private System.Windows.Forms.TextBox ContraseñaTextBox;
         private System.Windows.Forms.Button AtrasBoton;
+        private System.Windows.Forms.ComboBox IniciarComoComboBox;
+        private System.Windows.Forms.Label IniciarComo;
     }
 }
