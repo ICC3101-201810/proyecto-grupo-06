@@ -16,14 +16,16 @@ namespace WindowsFormsApp1
         List<Local> locales;
         List<Usuarios> usuarios;
         Usuarios usuario;
-        List<Platos> pedido = new List<Platos> { };
+        List<Platos> pedido =new List<Platos>();
+        List<Pedido> pedidos;
 
-        public ClienteIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios)
+        public ClienteIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios,List<Pedido> pedidos)
         {
             InitializeComponent();
             this.locales = locales;
             this.usuario = usuario;
             this.usuarios = usuarios;
+            this.pedidos = pedidos;
         }
 
         private void ClienteIniciado_Load(object sender, EventArgs e)
@@ -32,12 +34,21 @@ namespace WindowsFormsApp1
             {
                 LocalesComboBox.Items.Add(local.Nombre);
             }
+            foreach(Pedido pe in pedidos)
+            {
+                string o = "";
+                foreach(Platos pl in pe.PlatosCliente)
+                {
+                    o += pl.Nombre+", ";
+                }
+                PedidosHechosBox.Items.Add("Pedido:" + o + "hora:" + pe.hora + ":" + pe.minuto);
+            }
         }
 
         private void CerrarSesionBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 F1 = new Form1(usuarios, locales);
+            Form1 F1 = new Form1(usuarios, locales, pedidos);
             F1.ShowDialog();
 
         }
@@ -94,6 +105,38 @@ namespace WindowsFormsApp1
                 TotalListBox.Items.Add("$" + total);
             }
             catch { }
+        }
+
+        private void TerminarPedidoBoton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TotalListBox.Items[0].ToString() == "" || TotalListBox.Items[0].ToString() == "$0")
+                {
+                    MessageBox.Show("No hay pedido por hacer");
+                }
+                else if (HoraBox.Text == "" || MinBox.Text == "")
+                {
+                    MessageBox.Show("Escoja una hora para su pedido");
+                }
+                else
+                {
+                    this.Hide();
+                    WebPAy webPay = new WebPAy(pedido, pedidos, usuarios, usuario, locales, HoraBox.Text, MinBox.Text);
+                    webPay.ShowDialog();
+                }
+            }
+            catch { }
+        }
+
+        private void PedidosHechosBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TotalListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

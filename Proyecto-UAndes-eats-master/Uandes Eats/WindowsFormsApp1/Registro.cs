@@ -14,12 +14,14 @@ namespace WindowsFormsApp1
     {
         List<Usuarios> usuarios;
         List<Local> locales;
+        List<Pedido> pedidos;
 
-        public Registro(List<Usuarios> usuarios, List<Local> locales)
+        public Registro(List<Usuarios> usuarios, List<Local> locales, List<Pedido> pedidos)
         {
             InitializeComponent();
             this.usuarios = usuarios;
             this.locales = locales;
+            this.pedidos = pedidos;
         }
 
         private void RegistrarseBoton_Click(object sender, EventArgs e)
@@ -41,6 +43,9 @@ namespace WindowsFormsApp1
                 {
                     usuarios.Add(new Clientes(NombreTextBox.Text, ApellidoTextBox.Text, RutTextBox.Text, MailTextBox.Text, TelefonoTextBox.Text, ContraseñaTextBox.Text));
                     MessageBox.Show("Felicidades, su cuenta de cliente ha sido creada exitosamente");
+                    this.Close();
+                    Form1 F1 = new Form1(usuarios, locales, pedidos);
+                    F1.ShowDialog();
                 }
                 else
                 {
@@ -77,7 +82,7 @@ namespace WindowsFormsApp1
         private void AtrasBoton_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 F1 = new Form1(usuarios, locales);
+            Form1 F1 = new Form1(usuarios, locales,pedidos);
             F1.ShowDialog();
         }
 

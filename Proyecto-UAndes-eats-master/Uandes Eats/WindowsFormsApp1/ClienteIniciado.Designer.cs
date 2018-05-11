@@ -39,6 +39,12 @@
             this.DescripcionPrecioPlato = new System.Windows.Forms.ListBox();
             this.AgregarPlatoCarroBoton = new System.Windows.Forms.Button();
             this.TotalListBox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.MinBox = new System.Windows.Forms.ComboBox();
+            this.HoraBox = new System.Windows.Forms.ComboBox();
+            this.PedidosHechosBox = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CerrarSesionBoton
@@ -53,12 +59,13 @@
             // 
             // TerminarPedidoBoton
             // 
-            this.TerminarPedidoBoton.Location = new System.Drawing.Point(22, 273);
+            this.TerminarPedidoBoton.Location = new System.Drawing.Point(22, 289);
             this.TerminarPedidoBoton.Name = "TerminarPedidoBoton";
             this.TerminarPedidoBoton.Size = new System.Drawing.Size(163, 49);
             this.TerminarPedidoBoton.TabIndex = 4;
-            this.TerminarPedidoBoton.Text = "Buscar Repertidor";
+            this.TerminarPedidoBoton.Text = "Hacer pedido";
             this.TerminarPedidoBoton.UseVisualStyleBackColor = true;
+            this.TerminarPedidoBoton.Click += new System.EventHandler(this.TerminarPedidoBoton_Click);
             // 
             // MenuClientes
             // 
@@ -140,12 +147,156 @@
             this.TotalListBox.Name = "TotalListBox";
             this.TotalListBox.Size = new System.Drawing.Size(120, 17);
             this.TotalListBox.TabIndex = 13;
+            this.TotalListBox.SelectedIndexChanged += new System.EventHandler(this.TotalListBox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 273);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Hora:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(98, 273);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(10, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = ":";
+            // 
+            // MinBox
+            // 
+            this.MinBox.FormattingEnabled = true;
+            this.MinBox.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60"});
+            this.MinBox.Location = new System.Drawing.Point(114, 265);
+            this.MinBox.Name = "MinBox";
+            this.MinBox.Size = new System.Drawing.Size(40, 21);
+            this.MinBox.TabIndex = 17;
+            // 
+            // HoraBox
+            // 
+            this.HoraBox.FormattingEnabled = true;
+            this.HoraBox.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.HoraBox.Location = new System.Drawing.Point(52, 265);
+            this.HoraBox.Name = "HoraBox";
+            this.HoraBox.Size = new System.Drawing.Size(40, 21);
+            this.HoraBox.TabIndex = 18;
+            // 
+            // PedidosHechosBox
+            // 
+            this.PedidosHechosBox.FormattingEnabled = true;
+            this.PedidosHechosBox.Location = new System.Drawing.Point(191, 344);
+            this.PedidosHechosBox.Name = "PedidosHechosBox";
+            this.PedidosHechosBox.Size = new System.Drawing.Size(436, 95);
+            this.PedidosHechosBox.TabIndex = 19;
+            this.PedidosHechosBox.SelectedIndexChanged += new System.EventHandler(this.PedidosHechosBox_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(116, 344);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Tus Pedidos:";
             // 
             // ClienteIniciado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.PedidosHechosBox);
+            this.Controls.Add(this.HoraBox);
+            this.Controls.Add(this.MinBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.TotalListBox);
             this.Controls.Add(this.AgregarPlatoCarroBoton);
             this.Controls.Add(this.DescripcionPrecioPlato);
@@ -177,5 +328,11 @@
         private System.Windows.Forms.ListBox DescripcionPrecioPlato;
         private System.Windows.Forms.Button AgregarPlatoCarroBoton;
         private System.Windows.Forms.ListBox TotalListBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox MinBox;
+        private System.Windows.Forms.ComboBox HoraBox;
+        private System.Windows.Forms.ListBox PedidosHechosBox;
+        private System.Windows.Forms.Label label4;
     }
 }

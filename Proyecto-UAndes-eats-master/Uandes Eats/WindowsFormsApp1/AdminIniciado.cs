@@ -15,13 +15,15 @@ namespace WindowsFormsApp1
         List<Local> locales;
         List<Usuarios> usuarios;
         Usuarios usuario;
+        List<Pedido> pedidos;
 
-        public AdminIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios)
+        public AdminIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios, List<Pedido> pedidos)
         {
             InitializeComponent();
             this.locales = locales;
             this.usuario = usuario;
             this.usuarios = usuarios;
+            this.pedidos = pedidos;
         }
 
         private void LocalesAdminComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace WindowsFormsApp1
         private void CerrarSesionBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 F1 = new Form1(usuarios, locales);
+            Form1 F1 = new Form1(usuarios, locales, pedidos);
             F1.ShowDialog();
         }
 

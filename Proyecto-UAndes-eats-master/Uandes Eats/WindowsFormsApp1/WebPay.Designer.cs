@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class WebPay
+    partial class WebPAy
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebPay));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebPAy));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.TotalBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NumTarjetaBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.AnoVenBox = new System.Windows.Forms.ComboBox();
+            this.MesVecBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CodVerBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.OpcPagoBox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.PagarBoton = new System.Windows.Forms.Button();
             this.AnularBoton = new System.Windows.Forms.Button();
@@ -93,13 +93,13 @@
             this.label4.Text = resources.GetString("label4.Text");
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // listBox1
+            // TotalBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(127, 101);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(188, 17);
-            this.listBox1.TabIndex = 4;
+            this.TotalBox.FormattingEnabled = true;
+            this.TotalBox.Location = new System.Drawing.Point(127, 101);
+            this.TotalBox.Name = "TotalBox";
+            this.TotalBox.Size = new System.Drawing.Size(188, 17);
+            this.TotalBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -131,12 +131,12 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Número de Tarjeta:";
             // 
-            // textBox1
+            // NumTarjetaBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(321, 165);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 20);
-            this.textBox1.TabIndex = 8;
+            this.NumTarjetaBox.Location = new System.Drawing.Point(321, 165);
+            this.NumTarjetaBox.Name = "NumTarjetaBox";
+            this.NumTarjetaBox.Size = new System.Drawing.Size(179, 20);
+            this.NumTarjetaBox.TabIndex = 8;
             // 
             // label8
             // 
@@ -158,25 +158,25 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "/";
             // 
-            // comboBox1
+            // AnoVenBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AnoVenBox.FormattingEnabled = true;
+            this.AnoVenBox.Items.AddRange(new object[] {
             "2018",
             "2019",
             "2020",
             "2021",
             "2022",
             "2023"});
-            this.comboBox1.Location = new System.Drawing.Point(416, 208);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(84, 21);
-            this.comboBox1.TabIndex = 12;
+            this.AnoVenBox.Location = new System.Drawing.Point(416, 208);
+            this.AnoVenBox.Name = "AnoVenBox";
+            this.AnoVenBox.Size = new System.Drawing.Size(84, 21);
+            this.AnoVenBox.TabIndex = 12;
             // 
-            // comboBox2
+            // MesVecBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.MesVecBox.FormattingEnabled = true;
+            this.MesVecBox.Items.AddRange(new object[] {
             "01",
             "02",
             "03",
@@ -189,10 +189,10 @@
             "10",
             "11",
             "12"});
-            this.comboBox2.Location = new System.Drawing.Point(321, 208);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(69, 21);
-            this.comboBox2.TabIndex = 13;
+            this.MesVecBox.Location = new System.Drawing.Point(321, 208);
+            this.MesVecBox.Name = "MesVecBox";
+            this.MesVecBox.Size = new System.Drawing.Size(69, 21);
+            this.MesVecBox.TabIndex = 13;
             // 
             // label10
             // 
@@ -204,12 +204,12 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Código Verificador:";
             // 
-            // textBox2
+            // CodVerBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(321, 254);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 20);
-            this.textBox2.TabIndex = 15;
+            this.CodVerBox.Location = new System.Drawing.Point(321, 254);
+            this.CodVerBox.Name = "CodVerBox";
+            this.CodVerBox.Size = new System.Drawing.Size(179, 20);
+            this.CodVerBox.TabIndex = 15;
             // 
             // label11
             // 
@@ -230,18 +230,18 @@
             this.label12.TabIndex = 17;
             this.label12.Text = "Opciones de Pago:";
             // 
-            // comboBox3
+            // OpcPagoBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.OpcPagoBox.FormattingEnabled = true;
+            this.OpcPagoBox.Items.AddRange(new object[] {
             "Sin Cuotas",
             "3 Cuotas",
             "6 Cuotas",
             "9 Cuotas"});
-            this.comboBox3.Location = new System.Drawing.Point(324, 302);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(96, 21);
-            this.comboBox3.TabIndex = 18;
+            this.OpcPagoBox.Location = new System.Drawing.Point(324, 302);
+            this.OpcPagoBox.Name = "OpcPagoBox";
+            this.OpcPagoBox.Size = new System.Drawing.Size(96, 21);
+            this.OpcPagoBox.TabIndex = 18;
             // 
             // label13
             // 
@@ -262,6 +262,7 @@
             this.PagarBoton.TabIndex = 20;
             this.PagarBoton.Text = "Pagar";
             this.PagarBoton.UseVisualStyleBackColor = false;
+            this.PagarBoton.Click += new System.EventHandler(this.PagarBoton_Click);
             // 
             // AnularBoton
             // 
@@ -284,7 +285,7 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // WebPay
+            // WebPAy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -293,25 +294,25 @@
             this.Controls.Add(this.AnularBoton);
             this.Controls.Add(this.PagarBoton);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.OpcPagoBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CodVerBox);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.MesVecBox);
+            this.Controls.Add(this.AnoVenBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NumTarjetaBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.TotalBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "WebPay";
+            this.Name = "WebPAy";
             this.Text = "WebPay";
             this.Load += new System.EventHandler(this.WebPay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -326,20 +327,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox TotalBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NumTarjetaBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox AnoVenBox;
+        private System.Windows.Forms.ComboBox MesVecBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CodVerBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox OpcPagoBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button PagarBoton;
         private System.Windows.Forms.Button AnularBoton;

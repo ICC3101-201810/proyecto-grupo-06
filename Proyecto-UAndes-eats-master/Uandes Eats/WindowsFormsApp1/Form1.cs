@@ -14,11 +14,13 @@ namespace WindowsFormsApp1
     {
         List<Usuarios> usuarios;
         List<Local> locales;
-        public Form1(List<Usuarios> usuarios, List<Local> locales)
+        List<Pedido> pedidos = new List<Pedido>();
+        public Form1(List<Usuarios> usuarios, List<Local> locales, List<Pedido> pedidos)
         {
             InitializeComponent();
             this.usuarios = usuarios;
             this.locales = locales;
+            this.pedidos = pedidos;
         }
 
         private void SalirBoton_Click(object sender, EventArgs e)
@@ -29,14 +31,14 @@ namespace WindowsFormsApp1
         private void RegistrarseBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registro F2 = new Registro(usuarios, locales);
+            Registro F2 = new Registro(usuarios, locales, pedidos);
             F2.Show();
         }
 
         private void IniciarSesionBoton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            IniciarSesion F3 = new IniciarSesion(usuarios, locales);
+            IniciarSesion F3 = new IniciarSesion(usuarios, locales,pedidos);
             F3.Show();
         }
 

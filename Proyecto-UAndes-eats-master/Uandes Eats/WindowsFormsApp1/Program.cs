@@ -44,10 +44,11 @@ namespace WindowsFormsApp1
             {
             }
 
+            List<Pedido> pedidos = new List<Pedido> { };
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(usuarios, locales));
+            Application.Run(new Form1(usuarios, locales, pedidos));
 
             try
             {

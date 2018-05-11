@@ -14,17 +14,19 @@ namespace WindowsFormsApp1
     {
         List<Usuarios> usuarios;
         List<Local> locales;
-        public IniciarSesion(List<Usuarios> usuarios, List<Local> locales)
+        List<Pedido> pedidos;
+        public IniciarSesion(List<Usuarios> usuarios, List<Local> locales, List<Pedido> pedidos)
         {
             InitializeComponent();
             this.usuarios = usuarios;
             this.locales = locales;
+            this.pedidos = pedidos;
         }
 
         private void AtrasBoton_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 F1 = new Form1(usuarios, locales);
+            Form1 F1 = new Form1(usuarios, locales, pedidos);
             F1.ShowDialog();
         }
 
@@ -44,17 +46,19 @@ namespace WindowsFormsApp1
                         if (usuario is Clientes && IniciarComoComboBox.SelectedIndex == 0)
                         {
                             this.Hide();
-                            ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios);
+                            ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
                             F2.ShowDialog();
                         }
                         else if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)
                         {
-
+                            this.Hide();
+                            RepartidorIniciado F3 = new RepartidorIniciado(usuario, locales, usuarios, pedidos);
+                            F3.ShowDialog();
                         }
                         else if (usuario is Administradores)
                         {
                             this.Hide();
-                            AdminIniciado F4 = new AdminIniciado(usuario, locales, usuarios);
+                            AdminIniciado F4 = new AdminIniciado(usuario, locales, usuarios, pedidos);
                             F4.ShowDialog();
                         }
                         else
