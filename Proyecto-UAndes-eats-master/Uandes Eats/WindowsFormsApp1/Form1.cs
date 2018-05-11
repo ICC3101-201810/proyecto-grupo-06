@@ -39,5 +39,10 @@ namespace WindowsFormsApp1
             IniciarSesion F3 = new IniciarSesion(usuarios, locales);
             F3.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
