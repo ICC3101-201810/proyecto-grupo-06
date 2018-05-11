@@ -89,6 +89,18 @@
     <Compile Include="ClienteIniciado.Designer.cs">
       <DependentUpon>ClienteIniciado.cs</DependentUpon>
     </Compile>
+    <Compile Include="RepartidorIniciado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepartidorIniciado.Designer.cs">
+      <DependentUpon>RepartidorIniciado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebPay.Designer.cs">
+      <DependentUpon>WebPay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminIniciado.resx">
       <DependentUpon>AdminIniciado.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +130,12 @@
     </Compile>
     <EmbeddedResource Include="ClienteIniciado.resx">
       <DependentUpon>ClienteIniciado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RepartidorIniciado.resx">
+      <DependentUpon>RepartidorIniciado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebPay.resx">
+      <DependentUpon>WebPay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
