@@ -44,7 +44,8 @@ namespace WindowsFormsApp1
                         if (usuario is Clientes && IniciarComoComboBox.SelectedIndex == 0)
                         {
                             this.Hide();
-                            ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios);
+                            List<Pedido> pedidos = new List<Pedido>();
+                            ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios,pedidos);
                             F2.ShowDialog();
                         }
                         else if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)

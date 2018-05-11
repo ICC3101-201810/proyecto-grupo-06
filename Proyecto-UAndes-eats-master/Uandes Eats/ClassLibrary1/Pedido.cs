@@ -9,11 +9,16 @@ namespace WindowsFormsApp1
     public class Pedido
     {
         Usuarios Usuario;
-        List<Platos> PlatosCliente;
-        public Pedido(List<Platos> platos, Usuarios usuario)
+        public List<Platos> PlatosCliente;
+        public string hora;
+        public string minuto;
+
+        public Pedido(List<Platos> platos, Usuarios usuario, string hora, string minuto)
         {
             Usuario = usuario;
             PlatosCliente = platos;
+            this.hora = hora;
+            this.minuto = minuto;
 
         }
 

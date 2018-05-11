@@ -15,14 +15,16 @@ namespace WindowsFormsApp1
         List<Local> locales;
         List<Usuarios> usuarios;
         Usuarios usuario;
-        List<Platos> pedido = new List<Platos> { };
+        List<Platos> pedido=new List<Platos>();
+        List<Pedido> pedidos;
 
-        public ClienteIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios)
+        public ClienteIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios,List<Pedido> pedidos)
         {
             InitializeComponent();
             this.locales = locales;
             this.usuario = usuario;
             this.usuarios = usuarios;
+            this.pedidos = pedidos;
         }
 
         private void ClienteIniciado_Load(object sender, EventArgs e)
@@ -30,6 +32,15 @@ namespace WindowsFormsApp1
             foreach (Local local in locales)
             {
                 LocalesComboBox.Items.Add(local.Nombre);
+            }
+            foreach(Pedido pe in pedidos)
+            {
+                string o = "";
+                foreach(Platos pl in pe.PlatosCliente)
+                {
+                    o += pl.Nombre+", ";
+                }
+                PedidosHechosBox.Items.Add("Pedido:" + o + "hora:" + pe.hora + ":" + pe.minuto);
             }
         }
 
@@ -93,6 +104,18 @@ namespace WindowsFormsApp1
                 TotalListBox.Items.Add("$" + total);
             }
             catch { }
+        }
+
+        private void TerminarPedidoBoton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WebPAy webPay = new WebPAy(pedido, pedidos, usuarios, usuario, locales,HoraBox.Text, MinBox.Text);
+            webPay.ShowDialog();
+        }
+
+        private void PedidosHechosBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
