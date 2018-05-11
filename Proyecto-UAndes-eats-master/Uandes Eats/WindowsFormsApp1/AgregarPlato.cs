@@ -23,18 +23,25 @@ namespace WindowsFormsApp1
 
         private void AgregarBoton_Click(object sender, EventArgs e)
         {
-            bool crear = true;
-            foreach(Platos plato in local.Menu)
+            try
             {
-                if(NombreNuevoPlato.Text == plato.Nombre)
+                bool crear = true;
+                foreach (Platos plato in local.Menu)
                 {
-                    crear = false;
+                    if (NombreNuevoPlato.Text == plato.Nombre)
+                    {
+                        crear = false;
+                    }
+                }
+                if (crear)
+                {
+                    local.Menu.Add(new Platos(NombreNuevoPlato.Text, DescripocionNuevoPlato.Text, Convert.ToInt32(PrecioNuevoPlato.Text)));
+                    this.Hide();
                 }
             }
-            if (crear)
+            catch
             {
-                local.Menu.Add(new Platos(NombreNuevoPlato.Text, DescripocionNuevoPlato.Text, Convert.ToInt32(PrecioNuevoPlato.Text)));
-                this.Hide();
+                MessageBox.Show("Error en la informacion entregada, falta informacion o el precio no es concistente");
             }
         }
 

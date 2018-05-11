@@ -37,7 +37,6 @@ namespace WindowsFormsApp1
             }
             else
             {
-                bool error = true;
                 foreach(Usuarios usuario in usuarios)
                 {
                     if(RutTextBox.Text == usuario.Rut && ContraseñaTextBox.Text == usuario.Contraseña)
@@ -48,22 +47,21 @@ namespace WindowsFormsApp1
                             ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios);
                             F2.ShowDialog();
                         }
-                        if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)
+                        else if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)
                         {
 
                         }
-                        if (usuario is Administradores)
+                        else if (usuario is Administradores)
                         {
                             this.Hide();
                             AdminIniciado F4 = new AdminIniciado(usuario, locales, usuarios);
                             F4.ShowDialog();
                         }
-                        error = false;
+                        else
+                        {
+                            MessageBox.Show("Rut, contraseña y/o tipo de usuario invalidos");
+                        }
                     }
-                }
-                if (error)
-                {
-                    MessageBox.Show("Rut o contraseña invalidos");
                 }
             }
         }

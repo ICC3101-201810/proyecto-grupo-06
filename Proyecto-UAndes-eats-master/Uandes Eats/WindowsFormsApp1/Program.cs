@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             {
             }
 
-            List<Usuarios> usuarios = new List<Usuarios> { };
+            List<Usuarios> usuarios = new List<Usuarios> { new Administradores("Pedro", "Naretto", "19689484-5a", "ppnaretto@miuandes.cl", "74290557", "p"), new Administradores("Joaquin", "Palominos", "19606210-6a", "japalominos@miuandes.cl", "65879598","j")};
             try
             {
                 using (Stream stream = File.Open("DatosUsuarios.bin", FileMode.Open))

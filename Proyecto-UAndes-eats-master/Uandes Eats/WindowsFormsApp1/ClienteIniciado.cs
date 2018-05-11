@@ -52,35 +52,47 @@ namespace WindowsFormsApp1
 
         private void MenuClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DescripcionPrecioPlato.Items.Clear();
-            DescripcionPrecioPlato.Items.Add("Descripcion= " + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Descripcion);
-            DescripcionPrecioPlato.Items.Add("Precio = $" + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Precio.ToString());
+            try
+            {
+                DescripcionPrecioPlato.Items.Clear();
+                DescripcionPrecioPlato.Items.Add("Descripcion= " + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Descripcion);
+                DescripcionPrecioPlato.Items.Add("Precio = $" + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Precio.ToString());
+            }
+            catch { }
         }
 
         private void AgregarPlatoCarroBoton_Click(object sender, EventArgs e)
         {
-            PedidoCliente.Items.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Nombre);
-            pedido.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex]);
-            int total = 0;
-            foreach (Platos plato in pedido)
+            try
             {
-                total += plato.Precio;
+                PedidoCliente.Items.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Nombre);
+                pedido.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex]);
+                int total = 0;
+                foreach (Platos plato in pedido)
+                {
+                    total += plato.Precio;
+                }
+                TotalListBox.Items.Clear();
+                TotalListBox.Items.Add("$" + total);
             }
-            TotalListBox.Items.Clear();
-            TotalListBox.Items.Add("$" + total);
+            catch { }
         }
 
         private void SacarCarroBoton_Click(object sender, EventArgs e)
         {
-            pedido.Remove(pedido[PedidoCliente.SelectedIndex]);
-            PedidoCliente.Items.Remove(PedidoCliente.Items[PedidoCliente.SelectedIndex]);
-            int total = 0;
-            foreach (Platos plato in pedido)
+            try
             {
-                total += plato.Precio;
+                pedido.Remove(pedido[PedidoCliente.SelectedIndex]);
+                PedidoCliente.Items.Remove(PedidoCliente.Items[PedidoCliente.SelectedIndex]);
+                int total = 0;
+                foreach (Platos plato in pedido)
+                {
+                    total += plato.Precio;
+                }
+                TotalListBox.Items.Clear();
+                TotalListBox.Items.Add("$" + total);
             }
-            TotalListBox.Items.Clear();
-            TotalListBox.Items.Add("$" + total);
+            catch { }
         }
     }
 }

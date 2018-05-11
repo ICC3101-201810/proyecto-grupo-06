@@ -66,12 +66,16 @@ namespace WindowsFormsApp1
 
         private void QuitarPlatoBoton_Click(object sender, EventArgs e)
         {
-            locales[LocalesAdminComboBox.SelectedIndex].Menu.Remove(locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex]);
-            MenuAdmin.Items.Clear();
-            foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
+            try
             {
-                MenuAdmin.Items.Add(plato.Nombre);
+                locales[LocalesAdminComboBox.SelectedIndex].Menu.Remove(locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex]);
+                MenuAdmin.Items.Clear();
+                foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
+                {
+                    MenuAdmin.Items.Add(plato.Nombre);
+                }
             }
+            catch { }
         }
 
         private void AgregarLocalBoton_Click(object sender, EventArgs e)
