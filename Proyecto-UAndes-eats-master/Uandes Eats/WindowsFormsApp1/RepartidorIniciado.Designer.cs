@@ -43,7 +43,6 @@
             this.PedidosBox.Name = "PedidosBox";
             this.PedidosBox.Size = new System.Drawing.Size(318, 303);
             this.PedidosBox.TabIndex = 0;
-            this.PedidosBox.SelectedIndexChanged += new System.EventHandler(this.PedidosBox_SelectedIndexChanged);
             // 
             // Pedidos
             // 
@@ -70,6 +69,7 @@
             this.AgregarAPedidosButtom.TabIndex = 3;
             this.AgregarAPedidosButtom.Text = "Agregar Pedido";
             this.AgregarAPedidosButtom.UseVisualStyleBackColor = true;
+            this.AgregarAPedidosButtom.Click += new System.EventHandler(this.AgregarAPedidosButtom_Click);
             // 
             // label2
             // 
@@ -79,7 +79,6 @@
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tu/s Pedido/s:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
             // 
@@ -103,6 +102,7 @@
             this.Controls.Add(this.PedidosBox);
             this.Name = "RepartidorIniciado";
             this.Text = "RepartidorIniciado";
+            this.Load += new System.EventHandler(this.RepartidorIniciado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
