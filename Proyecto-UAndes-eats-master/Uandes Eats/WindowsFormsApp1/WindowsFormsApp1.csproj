@@ -45,6 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminIniciado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminIniciado.Designer.cs">
+      <DependentUpon>AdminIniciado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarLocal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarLocal.Designer.cs">
+      <DependentUpon>AgregarLocal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarPlato.Designer.cs">
+      <DependentUpon>AgregarPlato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +89,15 @@
     <Compile Include="ClienteIniciado.Designer.cs">
       <DependentUpon>ClienteIniciado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminIniciado.resx">
+      <DependentUpon>AdminIniciado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarLocal.resx">
+      <DependentUpon>AgregarLocal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarPlato.resx">
+      <DependentUpon>AgregarPlato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
 
         private void IngresarBoton_Click(object sender, EventArgs e)
         {
-            if(RutTextBox.Text == "" || ContraseñaTextBox.Text == ""|| IniciarComoComboBox.SelectedIndex== null)
+            if(RutTextBox.Text == "" || ContraseñaTextBox.Text == "")
             {
                 MessageBox.Show("Rut o contraseña invalidos");
 
@@ -42,19 +42,21 @@ namespace WindowsFormsApp1
                 {
                     if(RutTextBox.Text == usuario.Rut && ContraseñaTextBox.Text == usuario.Contraseña)
                     {
-                        if (usuario is Clientes)
+                        if (usuario is Clientes && IniciarComoComboBox.SelectedIndex == 0)
                         {
                             this.Hide();
-                            ClienteIniciado F4 = new ClienteIniciado(usuario, locales, usuarios);
-                            F4.ShowDialog();
+                            ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios);
+                            F2.ShowDialog();
                         }
-                        if (usuario is Repartidores)
+                        if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)
                         {
 
                         }
                         if (usuario is Administradores)
                         {
-
+                            this.Hide();
+                            AdminIniciado F4 = new AdminIniciado(usuario, locales, usuarios);
+                            F4.ShowDialog();
                         }
                         error = false;
                     }
@@ -68,12 +70,7 @@ namespace WindowsFormsApp1
 
         private void IniciarSesion_Load(object sender, EventArgs e)
         {
-            //IniciarComoComboBox.VisibleChanged = "CLiente";
-        }
-
-        private void IniciarComoComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            IniciarComoComboBox.SelectedIndex = 0;
         }
     }
 }

@@ -101,7 +101,6 @@
             this.IniciarComoComboBox.Size = new System.Drawing.Size(121, 21);
             this.IniciarComoComboBox.TabIndex = 6;
             this.IniciarComoComboBox.Tag = "";
-            this.IniciarComoComboBox.SelectedIndexChanged += new System.EventHandler(this.IniciarComoComboBox_SelectedIndexChanged);
             // 
             // IniciarComo
             // 
