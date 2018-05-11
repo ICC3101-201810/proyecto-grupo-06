@@ -39,7 +39,6 @@ using System.Runtime.Serialization.Formatters.Binary;
     //        //List<Local> Locales = new List<Local>();
     //        //List<Platos> m1 = new List<Platos>();
     //        //List<Platos> m2 = new List<Platos>();
-    //        //List<RepartidoresActivos> Repartidorese1 = new List<RepartidoresActivos> { };
     //        //Platos p1 = new Platos("Sushi", "10 piezas de sushi con camarón, queso crema y pepino", 2490);
     //        //Platos p2 = new Platos("Handroll", "Roll de sushi tempura con queso crema, cebollin y pollo", 1790);
     //        //Platos p3 = new Platos("Fideos Bolognesa", "Fideos con salsa bolognesa", 1890);

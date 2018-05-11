@@ -19,3 +19,5 @@ C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats
 C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe.config
 C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.exe
 C:\Users\Joako\Desktop\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\bin\Debug\Uandes Eats.pdb
+C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes_Eats.RepartidorIniciado.resources
+C:\Users\Pedro\Desktop\UAndes\Progra orientada a objetos\Proyecto Uandes Eats\proyecto-grupo-06\Proyecto-UAndes-eats-master\Uandes Eats\Uandes Eats\obj\Debug\Uandes Eats.csproj.GenerateResource.cache

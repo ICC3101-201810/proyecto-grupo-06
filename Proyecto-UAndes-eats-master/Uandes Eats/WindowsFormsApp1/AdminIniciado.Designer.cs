@@ -44,6 +44,7 @@
             this.LocalesAdminComboBox.Name = "LocalesAdminComboBox";
             this.LocalesAdminComboBox.Size = new System.Drawing.Size(229, 21);
             this.LocalesAdminComboBox.TabIndex = 0;
+            this.LocalesAdminComboBox.Text = "Escoja un local";
             this.LocalesAdminComboBox.SelectedIndexChanged += new System.EventHandler(this.LocalesAdminComboBox_SelectedIndexChanged);
             // 
             // MenuAdmin
@@ -72,6 +73,7 @@
             this.QuitarLocalBoton.TabIndex = 3;
             this.QuitarLocalBoton.Text = "Quitar Local";
             this.QuitarLocalBoton.UseVisualStyleBackColor = true;
+            this.QuitarLocalBoton.Click += new System.EventHandler(this.QuitarLocalBoton_Click);
             // 
             // AgregarPlatoBoton
             // 

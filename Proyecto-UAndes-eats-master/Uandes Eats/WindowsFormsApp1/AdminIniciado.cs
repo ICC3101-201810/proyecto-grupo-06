@@ -50,23 +50,28 @@ namespace WindowsFormsApp1
 
         private void AgregarPlatoBoton_Click(object sender, EventArgs e)
         {
-            if (LocalesAdminComboBox.SelectedIndex < 0 && LocalesAdminComboBox.SelectedIndex > locales.Count()-1)
-            { }
-            else
+            try
             {
                 AgregarPlato F2 = new AgregarPlato(locales, locales[LocalesAdminComboBox.SelectedIndex]);
                 F2.ShowDialog();
+                MenuAdmin.Items.Clear();
+                foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
+                {
+                    MenuAdmin.Items.Add(plato.Nombre);
+                }
             }
+            catch
+            { }
+        }
+
+        private void QuitarPlatoBoton_Click(object sender, EventArgs e)
+        {
+            locales[LocalesAdminComboBox.SelectedIndex].Menu.Remove(locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex]);
             MenuAdmin.Items.Clear();
             foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
             {
                 MenuAdmin.Items.Add(plato.Nombre);
             }
-        }
-
-        private void QuitarPlatoBoton_Click(object sender, EventArgs e)
-        {
-            MenuAdmin.Items.Remove(MenuAdmin.SelectedIndex);
         }
 
         private void AgregarLocalBoton_Click(object sender, EventArgs e)
@@ -78,6 +83,29 @@ namespace WindowsFormsApp1
             {
                 LocalesAdminComboBox.Items.Add(local.Nombre);
             }
+        }
+
+        private void QuitarLocalBoton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                locales.Remove(locales[LocalesAdminComboBox.SelectedIndex]);
+                LocalesAdminComboBox.Items.Clear();
+                LocalesAdminComboBox.Text = "";
+                foreach (Local local in locales)
+                {
+                    LocalesAdminComboBox.Items.Add(local.Nombre);
+                }
+                MenuAdmin.Items.Clear();
+
+                LocalesAdminComboBox.SelectedIndex = 0;
+                foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
+                {
+                    MenuAdmin.Items.Add(plato.Nombre);
+                }
+            }
+            catch
+            { }
         }
     }
 }
