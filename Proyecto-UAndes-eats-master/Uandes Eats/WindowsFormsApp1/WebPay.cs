@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         List<Local> locales;
         string hora;
         string min;
+
         public WebPAy(List<Platos> pedido,List<Pedido> pedidos,List<Usuarios> usuarios,Usuarios usuario,List<Local> locales, string hora, string min)
         {
             this.pedido = pedido;
@@ -56,12 +57,19 @@ namespace WindowsFormsApp1
 
         private void PagarBoton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Su pago fue realizado con exito");
-            this.Hide();
-            Pedido pedido1 = new Pedido(pedido, usuario, hora,min);
-            pedidos.Add(pedido1);
-            ClienteIniciado c1 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
-            c1.ShowDialog();
+            if (NumTarjetaBox.Text == "" || MesVecBox.Text == "" || AnoVenBox.Text == "" || CodVerBox.Text == "" || OpcPagoBox.Text == "")
+            {
+                MessageBox.Show("Ingrese los datos de la tarjeta");
+            }
+            else
+            {
+                MessageBox.Show("Su pago fue realizado con exito");
+                this.Hide();
+                Pedido pedido1 = new Pedido(pedido, usuario, hora, min);
+                pedidos.Add(pedido1);
+                ClienteIniciado c1 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
+                c1.ShowDialog();
+            }
         }
     }
 }

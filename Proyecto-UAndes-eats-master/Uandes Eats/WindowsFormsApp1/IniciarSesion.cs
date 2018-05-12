@@ -39,33 +39,41 @@ namespace WindowsFormsApp1
             }
             else
             {
+                bool entro = true;
                 foreach(Usuarios usuario in usuarios)
                 {
                     if(RutTextBox.Text == usuario.Rut && ContraseñaTextBox.Text == usuario.Contraseña)
                     {
                         if (usuario is Clientes && IniciarComoComboBox.SelectedIndex == 0)
                         {
+                            entro = false;
                             this.Hide();
                             ClienteIniciado F2 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
                             F2.ShowDialog();
+                            break;
                         }
                         else if (usuario is Repartidores && IniciarComoComboBox.SelectedIndex == 1)
                         {
+                            entro = false;
                             this.Hide();
                             RepartidorIniciado F3 = new RepartidorIniciado(usuario, locales, usuarios, pedidos);
                             F3.ShowDialog();
+                            break;
                         }
                         else if (usuario is Administradores)
                         {
+                            entro = false;
                             this.Hide();
                             AdminIniciado F4 = new AdminIniciado(usuario, locales, usuarios, pedidos);
                             F4.ShowDialog();
+                            break;
                         }
-                        else
-                        {
-                            MessageBox.Show("Rut, contraseña y/o tipo de usuario invalidos");
-                        }
+                        
                     }
+                }
+                if (entro)
+                {
+                    MessageBox.Show("Rut, contraseña y/o tipo de usuario invalidos");
                 }
             }
         }
