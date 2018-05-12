@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
             List<Local> locales = new List<Local> { };
             try
             {
-                using (Stream stream = File.Open("DatosLocales.bin", FileMode.Open))
+                using (Stream stream = File.Open("../../archivos/DatosLocales.bin", FileMode.Open))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 
@@ -30,10 +30,10 @@ namespace WindowsFormsApp1
             {
             }
 
-            List<Usuarios> usuarios = new List<Usuarios> { new Administradores("Pedro", "Naretto", "19689484-5a", "ppnaretto@miuandes.cl", "74290557", "p"), new Administradores("Joaquin", "Palominos", "19606210-6a", "japalominos@miuandes.cl", "65879598","j")};
+            List<Usuarios> usuarios = new List<Usuarios> { };
             try
             {
-                using (Stream stream = File.Open("DatosUsuarios.bin", FileMode.Open))
+                using (Stream stream = File.Open("../../archivos/DatosUsuarios.bin", FileMode.Open))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 
@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
 
             try
             {
-                using (Stream stream = File.Open("DatosLocales.bin", FileMode.Create))
+                using (Stream stream = File.Open("../../archivos/DatosLocales.bin", FileMode.OpenOrCreate))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, locales);
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
 
             try
             {
-                using (Stream stream = File.Open("DatosUsuarios.bin", FileMode.Create))
+                using (Stream stream = File.Open("../../archivos/DatosUsuarios.bin", FileMode.OpenOrCreate))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, usuarios);
