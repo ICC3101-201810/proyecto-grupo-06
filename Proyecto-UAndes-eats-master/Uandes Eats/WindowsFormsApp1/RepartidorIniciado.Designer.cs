@@ -43,6 +43,7 @@
             this.PedidosBox.Name = "PedidosBox";
             this.PedidosBox.Size = new System.Drawing.Size(318, 303);
             this.PedidosBox.TabIndex = 0;
+            this.PedidosBox.SelectedIndexChanged += new System.EventHandler(this.PedidosBox_SelectedIndexChanged);
             // 
             // Pedidos
             // 

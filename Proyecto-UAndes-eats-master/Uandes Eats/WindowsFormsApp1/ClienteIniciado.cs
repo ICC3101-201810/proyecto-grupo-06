@@ -34,14 +34,33 @@ namespace WindowsFormsApp1
             {
                 LocalesComboBox.Items.Add(local.Nombre);
             }
-            foreach(Pedido pe in pedidos)
+            foreach (Pedido pe in pedidos)
             {
                 string o = "";
-                foreach(Platos pl in pe.PlatosCliente)
+                foreach (Platos pl in pe.PlatosCliente)
                 {
-                    o += pl.Nombre+", ";
+                    o += pl.Nombre + ", ";
                 }
                 PedidosHechosBox.Items.Add("Pedido:" + o + "hora:" + pe.hora + ":" + pe.minuto);
+            }
+            int i = 1;
+            int h = DateTime.Now.Hour;
+            MinBox.Items.Add(0);
+            MinBox.Items.Add(15);
+            MinBox.Items.Add(30);
+            MinBox.Items.Add(45);
+            while (true)
+            {
+                if (h + i < 24)
+                {
+                    HoraBox.Items.Add(h + i);
+                }
+                else
+                {
+                    break;
+                }
+                i += 1;
+
             }
         }
 

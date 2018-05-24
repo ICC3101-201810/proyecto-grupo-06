@@ -62,7 +62,8 @@ namespace WindowsFormsApp1
                 {
                     o += plato.Nombre + ", ";
                 }
-                PedidosBox.Items.Add("Pedido: " + o + "/ Hora: "+ pedido.hora+pedido.minuto);
+                if (Convert.ToInt32(pedido.hora) >= DateTime.Now.Hour)
+                { PedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + ":" + pedido.minuto); }
             }
         }
 
@@ -71,6 +72,11 @@ namespace WindowsFormsApp1
             this.Hide();
             Form1 F1 = new Form1(usuarios, locales, pedidos);
             F1.ShowDialog();
+        }
+
+        private void PedidosBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
