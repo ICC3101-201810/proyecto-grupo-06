@@ -14,7 +14,8 @@ namespace WindowsFormsApp1
     {
         List<Usuarios> usuarios;
         List<Local> locales;
-        List<Pedido> pedidos = new List<Pedido>();
+        List<Pedido> pedidos;
+
         public Form1(List<Usuarios> usuarios, List<Local> locales, List<Pedido> pedidos)
         {
             InitializeComponent();
