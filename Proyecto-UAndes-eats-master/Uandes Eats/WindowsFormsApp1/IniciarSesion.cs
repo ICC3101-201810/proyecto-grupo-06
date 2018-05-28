@@ -82,5 +82,10 @@ namespace WindowsFormsApp1
         {
             IniciarComoComboBox.SelectedIndex = 0;
         }
+
+        private void ContraseñaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

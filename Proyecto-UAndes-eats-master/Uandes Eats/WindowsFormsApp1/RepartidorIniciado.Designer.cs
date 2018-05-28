@@ -34,6 +34,7 @@
             this.AgregarAPedidosButtom = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PedidosBox
@@ -64,7 +65,7 @@
             // 
             // AgregarAPedidosButtom
             // 
-            this.AgregarAPedidosButtom.Location = new System.Drawing.Point(336, 136);
+            this.AgregarAPedidosButtom.Location = new System.Drawing.Point(336, 73);
             this.AgregarAPedidosButtom.Name = "AgregarAPedidosButtom";
             this.AgregarAPedidosButtom.Size = new System.Drawing.Size(128, 72);
             this.AgregarAPedidosButtom.TabIndex = 3;
@@ -91,11 +92,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(336, 189);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 72);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Terminar Pedido";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RepartidorIniciado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AgregarAPedidosButtom);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button AgregarAPedidosButtom;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

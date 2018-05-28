@@ -29,22 +29,24 @@ namespace WindowsFormsApp1
 
         private void AgregarAPedidosButtom_Click(object sender, EventArgs e)
         {
+
             try
             {
                 TusPedidosBox.Items.Add(PedidosBox.Items[PedidosBox.SelectedIndex]);
-                pedidos.Remove(pedidos[PedidosBox.SelectedIndex]);
-                PedidosBox.Items.Remove(TusPedidosBox.Items[PedidosBox.SelectedIndex]);
-
-                PedidosBox.Items.Clear();
-                foreach (Pedido pedido in pedidos)
-                {
-                    string o = "";
-                    foreach (Platos plato in pedido.PlatosCliente)
-                    {
-                        o += plato.Nombre + ", ";
-                    }
-                    PedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + pedido.minuto);
-                }
+                pedidos[PedidosBox.SelectedIndex].CambiarEstado("En camino");
+                pedidos[PedidosBox.SelectedIndex].CambiarRepartidor(usuario.Nombre+" "+usuario.Apellido);
+                PedidosBox.Items.Remove(PedidosBox.Items[PedidosBox.SelectedIndex]);
+                
+                //PedidosBox.Items.Clear();
+                //foreach (Pedido pedido in pedidos)
+                //{
+                //    string o = "";
+                //    foreach (Platos plato in pedido.PlatosCliente)
+                //    {
+                //        o += plato.Nombre + ", ";
+                //    }
+                //    PedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + pedido.minuto);
+                //}
             }
             catch
             {
@@ -55,20 +57,39 @@ namespace WindowsFormsApp1
 
         private void RepartidorIniciado_Load(object sender, EventArgs e)
         {
+            
             foreach (Pedido pedido in pedidos)
             {
-                string o = "";
-                foreach(Platos plato in pedido.PlatosCliente)
+                if (pedido.estado=="En espera")
                 {
-                    o += plato.Nombre + ", ";
+
+                    string o = "";
+                    foreach (Platos plato in pedido.PlatosCliente)
+                    {
+                        o += plato.Nombre + ", ";
+                    }
+                    if (Convert.ToInt32(pedido.hora) >= DateTime.Now.Hour)
+                    { PedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + ":" + pedido.minuto+"/ Cliente: "+pedido.Usuario.Nombre+" "+pedido.Usuario.Apellido); }
                 }
-                if (Convert.ToInt32(pedido.hora) >= DateTime.Now.Hour)
-                { PedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + ":" + pedido.minuto); }
+                else if (pedido.repartidor == usuario.Nombre + " " + usuario.Apellido)
+                {
+                    string o = "";
+                    foreach (Platos plato in pedido.PlatosCliente)
+                    {
+                        o += plato.Nombre + ", ";
+                    }
+                    if (Convert.ToInt32(pedido.hora) >= DateTime.Now.Hour)
+                    { TusPedidosBox.Items.Add("Pedido: " + o + "/ Hora: " + pedido.hora + ":" + pedido.minuto); }
+                }
+
+
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             Form1 F1 = new Form1(usuarios, locales, pedidos);
             F1.ShowDialog();
@@ -77,6 +98,22 @@ namespace WindowsFormsApp1
         private void PedidosBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (TusPedidosBox.Text== "")
+            {
+                
+            }
+            else
+            {
+                pedidos[TusPedidosBox.SelectedIndex].CambiarEstado("Entregado");
+                TusPedidosBox.Items.Remove(TusPedidosBox.Items[TusPedidosBox.SelectedIndex]);
+            }
+            
+            
+           
         }
     }
 }

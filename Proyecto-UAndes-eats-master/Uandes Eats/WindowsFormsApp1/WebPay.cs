@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class WebPAy : Form
     {
-        List<Platos> pedido;
+        Pedido pedido;
         List<Pedido> pedidos;
         List<Usuarios> usuarios;
         Usuarios usuario;
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         string hora;
         string min;
 
-        public WebPAy(List<Platos> pedido,List<Pedido> pedidos,List<Usuarios> usuarios,Usuarios usuario,List<Local> locales, string hora, string min)
+        public WebPAy(Pedido pedido,List<Pedido> pedidos,List<Usuarios> usuarios,Usuarios usuario,List<Local> locales, string hora, string min)
         {
             this.pedido = pedido;
             this.pedidos = pedidos;
@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
         private void WebPay_Load(object sender, EventArgs e)
         {
             int total = 0;
-            foreach (Platos i in pedido)
+            foreach (Platos i in pedido.PlatosCliente)
             {
                 total += i.Precio;
 
@@ -65,11 +65,15 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Su pago fue realizado con exito");
                 this.Hide();
-                Pedido pedido1 = new Pedido(pedido, usuario, hora, min);
-                pedidos.Add(pedido1);
+                pedido.CambiarEstado("Finalizado");
                 ClienteIniciado c1 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
                 c1.ShowDialog();
             }
+        }
+
+        private void TotalBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

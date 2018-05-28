@@ -10,21 +10,32 @@ namespace WindowsFormsApp1
     [Serializable()]
     public class Pedido
     {
-        Usuarios Usuario;
+        public Usuarios Usuario;
         public List<Platos> PlatosCliente;
         public string hora;
         public string minuto;
+        public string estado;
+        public string repartidor;
 
-        public Pedido(List<Platos> platos, Usuarios usuario, string hora, string minuto)
+        public Pedido(List<Platos> platos, Usuarios usuario, string hora, string minuto, string estado, string repartidor)
         {
             Usuario = usuario;
             PlatosCliente = platos;
             this.hora = hora;
             this.minuto = minuto;
+            this.estado = estado;
+            this.repartidor = repartidor;
 
         }
 
-
+        public void CambiarEstado(string nuevoEstado)
+        {
+            estado = nuevoEstado;           
+        }
+        public void CambiarRepartidor(string nuevorepartidor)
+        {
+            repartidor = nuevorepartidor;
+        }
         public void VerPedido()
         {
             int resultado;

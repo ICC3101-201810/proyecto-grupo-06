@@ -100,6 +100,7 @@
             this.TotalBox.Name = "TotalBox";
             this.TotalBox.Size = new System.Drawing.Size(188, 17);
             this.TotalBox.TabIndex = 4;
+            this.TotalBox.SelectedIndexChanged += new System.EventHandler(this.TotalBox_SelectedIndexChanged);
             // 
             // label5
             // 

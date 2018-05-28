@@ -37,14 +37,20 @@ namespace WindowsFormsApp1
             foreach (Pedido pe in pedidos)
             {
                 string o = "";
-                foreach (Platos pl in pe.PlatosCliente)
+                if (pe.Usuario == usuario)
                 {
-                    o += pl.Nombre + ", ";
+
+                    foreach (Platos pl in pe.PlatosCliente)
+                    {
+                        o += pl.Nombre + ", ";
+                    }
+                    PedidosHechosBox.Items.Add("Pedido: " + o + "   Hora: " + pe.hora + ":" + pe.minuto + "   Estado: " + pe.estado+"   Repartidor: "+pe.repartidor);
                 }
-                PedidosHechosBox.Items.Add("Pedido:" + o + "hora:" + pe.hora + ":" + pe.minuto);
+                
             }
             int i = 1;
             int h = DateTime.Now.Hour;
+            int m = DateTime.Now.Minute;
             MinBox.Items.Add(0);
             MinBox.Items.Add(15);
             MinBox.Items.Add(30);
@@ -85,9 +91,11 @@ namespace WindowsFormsApp1
         {
             try
             {
+
                 DescripcionPrecioPlato.Items.Clear();
                 DescripcionPrecioPlato.Items.Add("Descripcion= " + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Descripcion);
                 DescripcionPrecioPlato.Items.Add("Precio = $" + locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Precio.ToString());
+
             }
             catch { }
         }
@@ -98,6 +106,7 @@ namespace WindowsFormsApp1
             {
                 PedidoCliente.Items.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex].Nombre);
                 pedido.Add(locales[LocalesComboBox.SelectedIndex].Menu[MenuClientes.SelectedIndex]);
+  
                 int total = 0;
                 foreach (Platos plato in pedido)
                 {
@@ -138,11 +147,26 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Escoja una hora para su pedido");
                 }
+                //else if ((DateTime.Now.Hour+1  + DateTime.Now.Minute/60) <=( Convert.ToInt32(HoraBox.SelectedItem)  + Convert.ToInt32(MinBox.SelectedItem)/60))
+                //{
+                //    MessageBox.Show("Recuerde que los pedidos tienen que ser agendados con minimo una hora de anticipacion");
+                //}
                 else
                 {
-                    this.Hide();
-                    WebPAy webPay = new WebPAy(pedido, pedidos, usuarios, usuario, locales, HoraBox.Text, MinBox.Text);
-                    webPay.ShowDialog();
+
+                    Pedido pedido1 = new Pedido(pedido, usuario, HoraBox.SelectedItem.ToString(), MinBox.SelectedItem.ToString(), "En espera","nadie");
+                    pedidos.Add(pedido1);
+                    string o = "";
+                    foreach (Platos pl in pedido1.PlatosCliente)
+                    {
+                        o += pl.Nombre + ", ";
+                    }
+                    PedidosHechosBox.Items.Add("Pedido: " + o + "   Hora: " + pedido1.hora + " : " + pedido1.minuto + "   Estado: " + pedido1.estado+"   Repartidor: "+pedido1.repartidor);
+                    pedido = new List<Platos>();
+                    PedidoCliente.Items.Clear();
+                    HoraBox.ResetText();
+                    MinBox.ResetText();
+                    TotalListBox.Items.Clear();
                 }
             }
             catch { }
@@ -156,6 +180,32 @@ namespace WindowsFormsApp1
         private void TotalListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void HoraBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TerButtom_Click(object sender, EventArgs e)
+        {
+            if (PedidosHechosBox.Text=="") {
+                MessageBox.Show("Eliga un pedido, antes de realizar una acción");
+            }
+            else if (PedidosHechosBox.SelectedItem.ToString().Contains("En espera")==true || PedidosHechosBox.SelectedItem.ToString().Contains("En camino") == true)
+            {
+                MessageBox.Show("Su pedido todavia se te tiene que entregar antes de realizar esta acción");
+            }
+            else if (PedidosHechosBox.SelectedItem.ToString().Contains("Finalizado") == true){
+                MessageBox.Show("Su pedido ya lo cancelo");
+            }
+            else {
+                this.Hide();
+
+                WebPAy webPay = new WebPAy(pedidos[PedidosHechosBox.SelectedIndex], pedidos, usuarios, usuario, locales, HoraBox.Text, MinBox.Text);
+                webPay.ShowDialog();
+            }
+            
         }
     }
 }

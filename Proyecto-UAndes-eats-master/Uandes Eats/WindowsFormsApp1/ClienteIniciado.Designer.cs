@@ -45,6 +45,7 @@
             this.HoraBox = new System.Windows.Forms.ComboBox();
             this.PedidosHechosBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.FinButtom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CerrarSesionBoton
@@ -143,7 +144,7 @@
             // TotalListBox
             // 
             this.TotalListBox.FormattingEnabled = true;
-            this.TotalListBox.Location = new System.Drawing.Point(59, 238);
+            this.TotalListBox.Location = new System.Drawing.Point(52, 238);
             this.TotalListBox.Name = "TotalListBox";
             this.TotalListBox.Size = new System.Drawing.Size(120, 17);
             this.TotalListBox.TabIndex = 13;
@@ -182,30 +183,42 @@
             this.HoraBox.Name = "HoraBox";
             this.HoraBox.Size = new System.Drawing.Size(40, 21);
             this.HoraBox.TabIndex = 18;
+            this.HoraBox.SelectedIndexChanged += new System.EventHandler(this.HoraBox_SelectedIndexChanged);
             // 
             // PedidosHechosBox
             // 
             this.PedidosHechosBox.FormattingEnabled = true;
-            this.PedidosHechosBox.Location = new System.Drawing.Point(191, 344);
+            this.PedidosHechosBox.Location = new System.Drawing.Point(94, 344);
             this.PedidosHechosBox.Name = "PedidosHechosBox";
-            this.PedidosHechosBox.Size = new System.Drawing.Size(436, 95);
+            this.PedidosHechosBox.Size = new System.Drawing.Size(533, 95);
             this.PedidosHechosBox.TabIndex = 19;
             this.PedidosHechosBox.SelectedIndexChanged += new System.EventHandler(this.PedidosHechosBox_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(116, 344);
+            this.label4.Location = new System.Drawing.Point(19, 341);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 20;
             this.label4.Text = "Tus Pedidos:";
+            // 
+            // FinButtom
+            // 
+            this.FinButtom.Location = new System.Drawing.Point(633, 344);
+            this.FinButtom.Name = "FinButtom";
+            this.FinButtom.Size = new System.Drawing.Size(143, 94);
+            this.FinButtom.TabIndex = 21;
+            this.FinButtom.Text = "Finalizar pedido";
+            this.FinButtom.UseVisualStyleBackColor = true;
+            this.FinButtom.Click += new System.EventHandler(this.TerButtom_Click);
             // 
             // ClienteIniciado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.FinButtom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PedidosHechosBox);
             this.Controls.Add(this.HoraBox);
@@ -249,5 +262,6 @@
         private System.Windows.Forms.ComboBox HoraBox;
         private System.Windows.Forms.ListBox PedidosHechosBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button FinButtom;
     }
 }

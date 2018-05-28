@@ -79,6 +79,7 @@
             this.ContraseñaTextBox.Name = "ContraseñaTextBox";
             this.ContraseñaTextBox.Size = new System.Drawing.Size(204, 20);
             this.ContraseñaTextBox.TabIndex = 4;
+            this.ContraseñaTextBox.TextChanged += new System.EventHandler(this.ContraseñaTextBox_TextChanged);
             // 
             // AtrasBoton
             // 
