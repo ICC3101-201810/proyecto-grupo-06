@@ -35,6 +35,8 @@
             this.AgregarPlatoBoton = new System.Windows.Forms.Button();
             this.QuitarPlatoBoton = new System.Windows.Forms.Button();
             this.CerrarSesionBoton = new System.Windows.Forms.Button();
+            this.DescripcionPrecioPlatoAdmin = new System.Windows.Forms.ListBox();
+            this.EditarPlatoBoton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LocalesAdminComboBox
@@ -52,8 +54,9 @@
             this.MenuAdmin.FormattingEnabled = true;
             this.MenuAdmin.Location = new System.Drawing.Point(284, 72);
             this.MenuAdmin.Name = "MenuAdmin";
-            this.MenuAdmin.Size = new System.Drawing.Size(331, 199);
+            this.MenuAdmin.Size = new System.Drawing.Size(396, 199);
             this.MenuAdmin.TabIndex = 1;
+            this.MenuAdmin.SelectedIndexChanged += new System.EventHandler(this.MenuAdmin_SelectedIndexChanged);
             // 
             // AgregarLocalBoton
             // 
@@ -77,7 +80,7 @@
             // 
             // AgregarPlatoBoton
             // 
-            this.AgregarPlatoBoton.Location = new System.Drawing.Point(487, 283);
+            this.AgregarPlatoBoton.Location = new System.Drawing.Point(418, 365);
             this.AgregarPlatoBoton.Name = "AgregarPlatoBoton";
             this.AgregarPlatoBoton.Size = new System.Drawing.Size(128, 53);
             this.AgregarPlatoBoton.TabIndex = 4;
@@ -87,7 +90,7 @@
             // 
             // QuitarPlatoBoton
             // 
-            this.QuitarPlatoBoton.Location = new System.Drawing.Point(284, 283);
+            this.QuitarPlatoBoton.Location = new System.Drawing.Point(552, 365);
             this.QuitarPlatoBoton.Name = "QuitarPlatoBoton";
             this.QuitarPlatoBoton.Size = new System.Drawing.Size(128, 53);
             this.QuitarPlatoBoton.TabIndex = 5;
@@ -105,11 +108,31 @@
             this.CerrarSesionBoton.UseVisualStyleBackColor = true;
             this.CerrarSesionBoton.Click += new System.EventHandler(this.CerrarSesionBoton_Click);
             // 
+            // DescripcionPrecioPlatoAdmin
+            // 
+            this.DescripcionPrecioPlatoAdmin.FormattingEnabled = true;
+            this.DescripcionPrecioPlatoAdmin.Location = new System.Drawing.Point(284, 277);
+            this.DescripcionPrecioPlatoAdmin.Name = "DescripcionPrecioPlatoAdmin";
+            this.DescripcionPrecioPlatoAdmin.Size = new System.Drawing.Size(396, 82);
+            this.DescripcionPrecioPlatoAdmin.TabIndex = 14;
+            // 
+            // EditarPlatoBoton
+            // 
+            this.EditarPlatoBoton.Location = new System.Drawing.Point(284, 365);
+            this.EditarPlatoBoton.Name = "EditarPlatoBoton";
+            this.EditarPlatoBoton.Size = new System.Drawing.Size(128, 53);
+            this.EditarPlatoBoton.TabIndex = 13;
+            this.EditarPlatoBoton.Text = "Editar Plato";
+            this.EditarPlatoBoton.UseVisualStyleBackColor = true;
+            this.EditarPlatoBoton.Click += new System.EventHandler(this.EditarPlatoBoton_Click);
+            // 
             // AdminIniciado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 450);
+            this.ClientSize = new System.Drawing.Size(799, 472);
+            this.Controls.Add(this.DescripcionPrecioPlatoAdmin);
+            this.Controls.Add(this.EditarPlatoBoton);
             this.Controls.Add(this.CerrarSesionBoton);
             this.Controls.Add(this.QuitarPlatoBoton);
             this.Controls.Add(this.AgregarPlatoBoton);
@@ -133,5 +156,7 @@
         private System.Windows.Forms.Button AgregarPlatoBoton;
         private System.Windows.Forms.Button QuitarPlatoBoton;
         private System.Windows.Forms.Button CerrarSesionBoton;
+        private System.Windows.Forms.ListBox DescripcionPrecioPlatoAdmin;
+        private System.Windows.Forms.Button EditarPlatoBoton;
     }
 }

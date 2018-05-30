@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class RepartidorIniciado : Form
     {
+        BaseDatos Datos = new BaseDatos();
         List<Local> locales;
         List<Usuarios> usuarios;
         Usuarios usuario;
@@ -24,7 +25,7 @@ namespace WindowsFormsApp1
             this.locales = locales;
             this.usuario = usuario;
             this.usuarios = usuarios;
-            this.pedidos = pedidos;
+            this.pedidos = Datos.DesPedidos();
         }
 
         private void AgregarAPedidosButtom_Click(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace WindowsFormsApp1
                 pedidos[PedidosBox.SelectedIndex].CambiarEstado("En camino");
                 pedidos[PedidosBox.SelectedIndex].CambiarRepartidor(usuario.Nombre+" "+usuario.Apellido);
                 PedidosBox.Items.Remove(PedidosBox.Items[PedidosBox.SelectedIndex]);
+                Datos.SerPedidos(pedidos);
                 
                 //PedidosBox.Items.Clear();
                 //foreach (Pedido pedido in pedidos)
@@ -110,6 +112,7 @@ namespace WindowsFormsApp1
             {
                 pedidos[TusPedidosBox.SelectedIndex].CambiarEstado("Entregado");
                 TusPedidosBox.Items.Remove(TusPedidosBox.Items[TusPedidosBox.SelectedIndex]);
+                Datos.SerPedidos(pedidos);
             }
             
             

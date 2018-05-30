@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class WebPAy : Form
     {
+        BaseDatos Datos = new BaseDatos();
         Pedido pedido;
         List<Pedido> pedidos;
         List<Usuarios> usuarios;
@@ -64,8 +65,9 @@ namespace WindowsFormsApp1
             else
             {
                 MessageBox.Show("Su pago fue realizado con exito");
-                this.Hide();
                 pedido.CambiarEstado("Finalizado");
+                Datos.SerPedidos(pedidos);
+                this.Hide();
                 ClienteIniciado c1 = new ClienteIniciado(usuario, locales, usuarios, pedidos);
                 c1.ShowDialog();
             }

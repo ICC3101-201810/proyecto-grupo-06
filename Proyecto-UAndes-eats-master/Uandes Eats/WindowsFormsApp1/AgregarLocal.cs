@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class AgregarLocal : Form
     {
+        BaseDatos Datos = new BaseDatos();
         List<Local> locales;
         public AgregarLocal(List<Local> locales)
         {
@@ -45,6 +46,7 @@ namespace WindowsFormsApp1
                 if (crear)
                 {
                     locales.Add(new Local(NombreNuevoLocalBox.Text, UbicacionNuevoLocal.Text, TiempoNuevoLocal.Text, new List<Platos> { }));
+                    Datos.SerLocales(locales);
                     this.Hide();
                 }
             }

@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace WindowsFormsApp1
 {
 
-    class BaseDatos
+    public class BaseDatos
     {
 
         List<Local> locales;
@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
             return pedidos;
         }
 
-        public void SerLocales()
+        public void SerLocales(List<Local> locales)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void SerUsuarios()
+        public void SerUsuarios(List<Usuarios> usuarios)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void SerPedidos()
+        public void SerPedidos(List<Pedido> pedidos)
         {
             try
             {

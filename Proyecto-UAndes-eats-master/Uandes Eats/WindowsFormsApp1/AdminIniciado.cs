@@ -113,5 +113,35 @@ namespace WindowsFormsApp1
             catch
             { }
         }
+
+        private void MenuAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DescripcionPrecioPlatoAdmin.Items.Clear();
+                DescripcionPrecioPlatoAdmin.Items.Add("Descripcion= " + locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex].Descripcion);
+                DescripcionPrecioPlatoAdmin.Items.Add("Precio = $" + locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex].Precio.ToString());
+
+            }
+            catch { }
+        }
+
+        private void EditarPlatoBoton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EditarPlato F3 = new EditarPlato(locales[LocalesAdminComboBox.SelectedIndex], locales[LocalesAdminComboBox.SelectedIndex].Menu[MenuAdmin.SelectedIndex], locales);
+                F3.ShowDialog();
+                MenuAdmin.Items.Clear();
+                foreach (Platos plato in locales[LocalesAdminComboBox.SelectedIndex].Menu)
+                {
+                    MenuAdmin.Items.Add(plato.Nombre);
+                }
+                DescripcionPrecioPlatoAdmin.Items.Clear();
+            }
+            catch
+            { }
+        }
     }
 }

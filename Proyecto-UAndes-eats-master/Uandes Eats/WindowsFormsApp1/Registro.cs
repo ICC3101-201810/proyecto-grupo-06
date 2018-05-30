@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Registro : Form
     {
+        BaseDatos Datos = new BaseDatos();
         List<Usuarios> usuarios;
         List<Local> locales;
         List<Pedido> pedidos;
@@ -43,6 +44,7 @@ namespace WindowsFormsApp1
                 {
                     usuarios.Add(new Clientes(NombreTextBox.Text, ApellidoTextBox.Text, RutTextBox.Text, MailTextBox.Text, TelefonoTextBox.Text, ContraseñaTextBox.Text));
                     MessageBox.Show("Felicidades, su cuenta de cliente ha sido creada exitosamente");
+                    Datos.SerUsuarios(usuarios);
                     this.Close();
                     Form1 F1 = new Form1(usuarios, locales, pedidos);
                     F1.ShowDialog();
@@ -69,6 +71,10 @@ namespace WindowsFormsApp1
                 {
                     usuarios.Add(new Repartidores(NombreTextBox.Text, ApellidoTextBox.Text, RutTextBox.Text, MailTextBox.Text, TelefonoTextBox.Text, ContraseñaTextBox.Text));
                     MessageBox.Show("Felicidades, su cuenta de cliente ha sido creada exitosamente");
+                    Datos.SerUsuarios(usuarios);
+                    this.Close();
+                    Form1 F1 = new Form1(usuarios, locales, pedidos);
+                    F1.ShowDialog();
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class ClienteIniciado : Form
     {
+        BaseDatos Datos = new BaseDatos();
         List<Local> locales;
         List<Usuarios> usuarios;
         Usuarios usuario;
@@ -25,7 +26,7 @@ namespace WindowsFormsApp1
             this.locales = locales;
             this.usuario = usuario;
             this.usuarios = usuarios;
-            this.pedidos = pedidos;
+            this.pedidos = Datos.DesPedidos();
         }
 
         private void ClienteIniciado_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace WindowsFormsApp1
             foreach (Pedido pe in pedidos)
             {
                 string o = "";
-                if (pe.Usuario == usuario)
+                if (pe.Usuario.Rut == usuario.Rut)
                 {
 
                     foreach (Platos pl in pe.PlatosCliente)
@@ -167,6 +168,7 @@ namespace WindowsFormsApp1
                     HoraBox.ResetText();
                     MinBox.ResetText();
                     TotalListBox.Items.Clear();
+                    Datos.SerPedidos(pedidos);
                 }
             }
             catch { }

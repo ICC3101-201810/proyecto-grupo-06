@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class AgregarPlato : Form
     {
+        BaseDatos Datos = new BaseDatos();
         List<Local> locales;
         Local local;
         public AgregarPlato(List<Local> locales, Local local)
@@ -36,6 +37,7 @@ namespace WindowsFormsApp1
                 if (crear)
                 {
                     local.Menu.Add(new Platos(NombreNuevoPlato.Text, DescripocionNuevoPlato.Text, Convert.ToInt32(PrecioNuevoPlato.Text)));
+                    Datos.SerLocales(locales);
                     this.Hide();
                 }
             }
