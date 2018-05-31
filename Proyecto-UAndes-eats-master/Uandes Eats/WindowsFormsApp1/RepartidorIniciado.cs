@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         Usuarios usuario;
         List<Pedido> pedidos;
         List<Platos> pedido = new List<Platos> { };
+        List<int> indices = new List<int> { };
 
         public RepartidorIniciado(Usuarios usuario, List<Local> locales, List<Usuarios> usuarios, List<Pedido> pedidos)
         {
@@ -34,9 +35,9 @@ namespace WindowsFormsApp1
             try
             {
                 TusPedidosBox.Items.Add(PedidosBox.Items[PedidosBox.SelectedIndex]);
-                pedidos[PedidosBox.SelectedIndex].CambiarEstado("En camino");
-                pedidos[PedidosBox.SelectedIndex].CambiarRepartidor(usuario.Nombre+" "+usuario.Apellido);
-                PedidosBox.Items.Remove(PedidosBox.Items[PedidosBox.SelectedIndex]);
+                pedidos[indices[PedidosBox.SelectedIndex]].CambiarEstado("En camino");
+                pedidos[indices[PedidosBox.SelectedIndex]].CambiarRepartidor(usuario.Nombre+" "+usuario.Apellido);
+                PedidosBox.Items.RemoveAt(PedidosBox.SelectedIndex);
                 Datos.SerPedidos(pedidos);
                 
                 //PedidosBox.Items.Clear();
@@ -64,7 +65,7 @@ namespace WindowsFormsApp1
             {
                 if (pedido.estado=="En espera")
                 {
-
+                    indices.Add(pedidos.IndexOf(pedido));
                     string o = "";
                     foreach (Platos plato in pedido.PlatosCliente)
                     {
@@ -75,6 +76,7 @@ namespace WindowsFormsApp1
                 }
                 else if (pedido.repartidor == usuario.Nombre + " " + usuario.Apellido)
                 {
+
                     string o = "";
                     foreach (Platos plato in pedido.PlatosCliente)
                     {
